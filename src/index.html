@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How a datacenter works</title>
+<!--STYLE-->
+</head>
+<body>
+<main id="scene" aria-label="3D model of a datacenter campus. Drag to look around, scroll to zoom."></main>
+
+<header class="title">
+  <h1>How a datacenter works</h1>
+  <p>Pick a datacenter on the globe.</p>
+</header>
+
+<div class="ambience" aria-label="Time and season">
+  <div class="mini" role="radiogroup" aria-label="Time of day"><button role="radio" data-time="day" aria-checked="true">Day</button><button role="radio" data-time="night" aria-checked="false">Night</button></div>
+  <div class="mini" role="radiogroup" aria-label="Season"><button role="radio" data-season="winter" aria-checked="false">Winter</button><button role="radio" data-season="summer" aria-checked="true">Summer</button></div>
+  <p class="amb-text"></p>
+</div>
+
+<div class="ambience vision-switch" aria-label="What to show">
+  <div class="mini" role="group" aria-label="Proven or promised"><button type="button" data-vision="off" aria-pressed="true">Proven today</button><button type="button" data-vision="on" aria-pressed="false">With promises</button></div>
+  <p class="amb-text">Solid = done somewhere today. <span class="ghost-key">Blue glass</span> = promised or research.</p>
+</div>
+
+<div class="top-actions">
+  <button class="globe-btn" type="button" id="to-globe">All sites</button>
+  <button class="tour-btn" type="button" id="tour-start">Take the tour</button>
+  <button class="about" type="button" data-topic="about">About the data</button>
+</div>
+
+<section class="tour" id="tour" hidden aria-live="polite">
+  <p class="tour-text"></p>
+  <div class="tour-bar">
+    <div class="tour-dots" aria-hidden="true"></div>
+    <button type="button" data-tour="prev" aria-label="Previous stop">‹</button>
+    <button type="button" data-tour="pause" aria-label="Pause">❚❚</button>
+    <button type="button" data-tour="next" aria-label="Next stop">›</button>
+    <button type="button" data-tour="exit">End tour</button>
+  </div>
+</section>
+
+<nav class="dock" aria-label="Explore a part"></nav>
+
+<section class="card" id="card" role="dialog" aria-labelledby="card-h" hidden>
+  <button class="close" type="button" aria-label="Back to the whole site">×</button>
+  <div class="card-body"></div>
+</section>
+
+<p class="hint" id="hint">Pick a part to look at</p>
+<p class="attrib">Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> · globe: Natural Earth</p>
+<!--SCRIPT-->
+</body>
+</html>

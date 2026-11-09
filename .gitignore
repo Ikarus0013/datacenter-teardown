@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.DS_Store
+.claude/
+
+# Original documents belong to their publishers (or carry no stated licence).
+# They are linked in the data files; download them with: python3 scripts/fetch_sources.py
+data/permits/
+data/planning/
+data/law/
+data/studies/
+data/rzreg-sites.json
+data/thedalles/*.pdf
+data/thedalles/*.txt
+__pycache__/
+*.pyc

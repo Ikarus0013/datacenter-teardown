@@ -1,0 +1,16 @@
+{
+  "name": "datacenter-teardown",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "python3 data/check.py",
+    "build": "python3 data/check.py && node build.mjs",
+    "fetch-sources": "python3 scripts/fetch_sources.py"
+  },
+  "devDependencies": {
+    "esbuild": "0.20.2",
+    "three": "0.160.0"
+  },
+  "license": "MIT",
+  "description": "Interactive 3D explainer of datacenters, built on real, sourced figures"
+}

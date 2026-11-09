@@ -1,0 +1,328 @@
+{
+  "id": "thedalles",
+  "name": "Google, The Dalles",
+  "place": "The Dalles, Oregon, USA",
+  "operator": "Google",
+  "sources": {
+    "google-env-2026": {
+      "title": "Google Environmental Report 2026",
+      "publisher": "Google",
+      "url": "https://sustainability.google/files/1699a2e19277e478b38a659f00cb38398a836e8c/download-1699a2e1.pdf",
+      "localCopy": "data/thedalles/google-2026-env-report.pdf",
+      "date": "2026",
+      "retrieved": "2026-11-09"
+    },
+    "google-env-2025": {
+      "title": "Google Environmental Report 2025",
+      "publisher": "Google",
+      "url": "https://www.gstatic.com/gumdrop/sustainability/google-2025-environmental-report.pdf",
+      "date": "2025"
+    },
+    "google-pue": {
+      "title": "Data center efficiency (PUE by campus)",
+      "publisher": "Google",
+      "url": "https://datacenters.google/efficiency",
+      "retrieved": "2026-11-09"
+    },
+    "google-site": {
+      "title": "The Dalles, Oregon",
+      "publisher": "Google",
+      "url": "https://datacenters.google/locations/the-dalles-oregon/",
+      "retrieved": "2026-11-09"
+    },
+    "google-water-profile": {
+      "title": "Data Center Water Profile: The Dalles",
+      "publisher": "Google",
+      "url": "https://www.gstatic.com/gumdrop/sustainability/2023-data-center-water-profile-the-dalles.pdf",
+      "date": "2023-04"
+    },
+    "noaa-normals": {
+      "title": "U.S. Climate Normals 1991–2020, station USC00358407 The Dalles",
+      "publisher": "NOAA NCEI",
+      "url": "https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/access/USC00358407.csv",
+      "localCopy": "data/thedalles/noaa-annual.csv",
+      "retrieved": "2026-11-09"
+    },
+    "kptv-2022": {
+      "title": "The Dalles drops fight to keep Google water use private",
+      "publisher": "AP via KPTV",
+      "url": "https://www.kptv.com/2022/12/16/dalles-drops-fight-keep-google-water-use-private/",
+      "date": "2022-12-16"
+    },
+    "dcd-2022": {
+      "title": "We now know how much water Google’s Oregon data centers use (DCD, republished)",
+      "publisher": "DatacenterDynamics, citing The Oregonian/city records",
+      "url": "https://waterwatch.org/we-now-know-how-much-water-googles-oregon-data-centers-use-after-the-dalles-drops-lawsuit-against-journalists/",
+      "date": "2022-12-19"
+    },
+    "opb-2026-01": {
+      "title": "As Google’s water demands grow, The Dalles aims to pull more from Mount Hood forest",
+      "publisher": "OPB",
+      "url": "https://opb.org/article/2026/01/15/as-googles-water-demands-grow-the-dalles-aims-to-pull-more-from-mount-hood-forest",
+      "date": "2026-01-15"
+    },
+    "opb-2026-07": {
+      "title": "Data center air quality: how we reported",
+      "publisher": "OPB",
+      "url": "https://www.opb.org/article/2026/07/22/data-center-air-quality-how-we-reported/",
+      "date": "2026-07-22"
+    },
+    "deq-permits": {
+      "title": "Air Contaminant Discharge Permits, Design LLC (33-0022, 33-0028, 33-0061)",
+      "publisher": "Oregon DEQ",
+      "url": "https://deqonline.deq.state.or.us/aq/aqpermitsonline/SearchResult.asp?sourcename=Design&currentdocumentsonly=0"
+    },
+    "bpa-cx-2018": {
+      "title": "Categorical Exclusion CX-017560, Quenett Creek substation",
+      "publisher": "Bonneville Power Administration (US DOE)",
+      "url": "https://www.energy.gov/node/3313143",
+      "date": "2018-01-09"
+    },
+    "fortune-2023": {
+      "title": "Google data center, The Dalles, water dispute",
+      "publisher": "Fortune",
+      "url": "https://fortune.com/longform/google-data-center-the-dalles-oregon-water-dispute",
+      "date": "2023-06-06"
+    },
+    "gcp-carbon": {
+      "title": "Google Cloud region carbon data (2025.csv)",
+      "publisher": "Google Cloud",
+      "url": "https://github.com/GoogleCloudPlatform/region-carbon-info",
+      "date": "2025"
+    },
+    "osm": {
+      "title": "OpenStreetMap: Google The Dalles sites, buildings, substations, water, roads",
+      "publisher": "OpenStreetMap contributors (ODbL)",
+      "url": "https://www.openstreetmap.org/way/231769626",
+      "localCopy": "data/osm/",
+      "retrieved": "2026-11-09"
+    },
+    "katu-2018": {
+      "title": "New Google data center opens in The Dalles",
+      "publisher": "KATU",
+      "url": "https://katu.com/news/local/new-google-data-center-opens-in-the-dalles",
+      "date": "2018-03-15"
+    }
+  },
+  "facts": {
+    "opened": {
+      "value": "2006 (first data center); fourth building completed 2025",
+      "status": "operator",
+      "source": "google-site",
+      "note": "Google: grew from two small buildings to campuses on three sites, the newest on a former aluminium smelter (Superfund) site."
+    },
+    "campuses": {
+      "value": 3,
+      "status": "operator",
+      "source": "google-pue",
+      "unit": "campuses with their own PUE"
+    },
+    "pueFirst": {
+      "value": 1.1,
+      "status": "operator",
+      "source": "google-pue",
+      "asOf": "2026 Q2 (trailing 12 months)"
+    },
+    "pueSecond": {
+      "value": 1.06,
+      "status": "operator",
+      "source": "google-pue",
+      "asOf": "2026 Q2 (trailing 12 months)"
+    },
+    "pueThird": {
+      "value": 1.08,
+      "status": "operator",
+      "source": "google-pue",
+      "asOf": "2026 Q2 (trailing 12 months)"
+    },
+    "overheadQuote": {
+      "value": "6% to 10% of additional energy for overhead … far lower than the 54% industry average",
+      "status": "operator",
+      "source": "google-env-2026",
+      "asOf": "2025 Q4"
+    },
+    "waterWithdrawal": {
+      "value": 654.3,
+      "status": "operator",
+      "source": "google-env-2026",
+      "unit": "million US gallons withdrawn, 2025",
+      "asOf": "2025",
+      "note": "Potable water, all three campuses together."
+    },
+    "waterDischarge": {
+      "value": 185.3,
+      "status": "operator",
+      "source": "google-env-2026",
+      "unit": "million US gallons discharged, 2025",
+      "asOf": "2025"
+    },
+    "waterConsumption": {
+      "value": 469.0,
+      "status": "operator",
+      "source": "google-env-2026",
+      "unit": "million US gallons consumed (evaporated), 2025",
+      "asOf": "2025"
+    },
+    "waterConsumption2024": {
+      "value": 361.4,
+      "status": "operator",
+      "source": "google-env-2025",
+      "unit": "million US gallons consumed, 2024",
+      "asOf": "2024"
+    },
+    "waterConsumptionM3": {
+      "value": 1775357,
+      "status": "derived",
+      "source": "google-env-2026",
+      "unit": "m³ consumed, 2025",
+      "formula": "469.0 million US gallons × 3.78541 L",
+      "inputs": [
+        "waterConsumption"
+      ]
+    },
+    "waterPerDayM3": {
+      "value": 4864,
+      "status": "derived",
+      "source": "google-env-2026",
+      "unit": "m³ consumed per day, 2025",
+      "formula": "waterConsumptionM3 / 365",
+      "inputs": [
+        "waterConsumptionM3"
+      ]
+    },
+    "cityShare": {
+      "value": "about a third of the city’s water by 2024 (12% in 2012)",
+      "status": "press",
+      "source": "opb-2026-01",
+      "asOf": "2024"
+    },
+    "lawsuit": {
+      "value": "the city fought 13 months in court to keep Google’s water use secret, then dropped the suit; Google paid $106,000 of its own legal costs and $53,000 toward the newspaper’s",
+      "status": "press",
+      "source": "kptv-2022",
+      "asOf": "2022-12"
+    },
+    "waterSource": {
+      "value": "city drinking water; the city takes most of it from Dog River (surface water), the rest from wells",
+      "status": "press",
+      "source": "opb-2026-01",
+      "asOf": "2026"
+    },
+    "mountHood": {
+      "value": "the city plans to expand its reservoir onto Mount Hood National Forest land",
+      "status": "press",
+      "source": "opb-2026-01",
+      "asOf": "2026-01"
+    },
+    "asr": {
+      "value": "Google built an aquifer storage and recovery system and gave it, with its groundwater rights, to the city at no cost; more than $28 million for public water and wastewater infrastructure",
+      "status": "operator",
+      "source": "google-env-2026",
+      "asOf": "2025"
+    },
+    "riskAssessment": {
+      "value": "Google’s own assessment found local water sources not at high risk of depletion or scarcity",
+      "status": "operator",
+      "source": "google-env-2026",
+      "asOf": "2025"
+    },
+    "cooling": {
+      "value": "water cooling with cooling towers; steam plumes are visible",
+      "status": "operator",
+      "source": "google-env-2026",
+      "note": "Report caption: 'Plumes of steam rise above our cooling towers'. DEQ permit: 'Industrial cooling towers'."
+    },
+    "electricity": {
+      "value": null,
+      "status": "not-public",
+      "source": "google-env-2026",
+      "note": "Google publishes no electricity use or capacity for The Dalles."
+    },
+    "interconnect": {
+      "value": 300,
+      "status": "reference",
+      "source": "bpa-cx-2018",
+      "unit": "MW requested in 2018 for an unnamed new data center (Quenett Creek substation)",
+      "asOf": "2018-01-09",
+      "note": "The customer is not named in the filing."
+    },
+    "cfe": {
+      "value": 83,
+      "status": "operator",
+      "source": "google-env-2026",
+      "unit": "% carbon-free energy, Bonneville Power region, 2025",
+      "asOf": "2025"
+    },
+    "gridCO2": {
+      "value": 97.85,
+      "status": "operator",
+      "source": "gcp-carbon",
+      "unit": "g CO₂ per kWh, Google Cloud region us-west1 (Oregon) grid, 2025",
+      "asOf": "2025",
+      "note": "Google notes the data 'has not been assured'."
+    },
+    "staff": {
+      "value": 200,
+      "status": "press",
+      "source": "fortune-2023",
+      "unit": "employees (about)",
+      "asOf": "2023"
+    },
+    "taxDiscount": {
+      "value": 92,
+      "status": "press",
+      "source": "opb-2026-01",
+      "unit": "% property tax discount",
+      "asOf": "2026"
+    },
+    "taxPaid": {
+      "value": 7.3,
+      "status": "press",
+      "source": "opb-2026-01",
+      "unit": "million US$ property tax paid in 2025",
+      "asOf": "2025"
+    },
+    "generators": {
+      "value": null,
+      "status": "not-public",
+      "source": "opb-2026-07",
+      "note": "Google asked Oregon DEQ to keep its generator list and capacity confidential as a trade secret; the agency agreed."
+    },
+    "generatorHours": {
+      "value": 100,
+      "status": "permitted",
+      "source": "deq-permits",
+      "unit": "hours a year each, outside emergencies (maximum)"
+    },
+    "noise": {
+      "value": null,
+      "status": "not-public",
+      "source": "fortune-2023",
+      "note": "No documented noise complaints found."
+    },
+    "tempMean": {
+      "value": 11.9,
+      "status": "reference",
+      "source": "noaa-normals",
+      "unit": "°C annual mean (53.5 °F), 1991–2020"
+    },
+    "julyMax": {
+      "value": 31.3,
+      "status": "reference",
+      "source": "noaa-normals",
+      "unit": "°C July average daily high (88.3 °F), 1991–2020"
+    },
+    "rain": {
+      "value": 355,
+      "status": "reference",
+      "source": "noaa-normals",
+      "unit": "mm a year (13.99 in), 1991–2020"
+    },
+    "heights": {
+      "value": null,
+      "status": "not-public",
+      "source": "osm",
+      "note": "Building outlines are real (OpenStreetMap); heights are not recorded and are estimated in the model."
+    }
+  }
+}

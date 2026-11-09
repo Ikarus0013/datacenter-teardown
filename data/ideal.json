@@ -1,0 +1,615 @@
+{
+ "site": {
+  "name": "The ideal datacenter (fictional)",
+  "place": "Luleå, Sweden",
+  "lat": 65.5831,
+  "lon": 22.146,
+  "note": "A made-up campus. Every part is the best value achieved somewhere, or a labelled promise. Layout and sizes of buildings are schematic."
+ },
+ "sources": {
+  "epoch-largest": {
+   "publisher": "Epoch AI",
+   "title": "Largest AI data centers by power capacity",
+   "url": "https://epoch.ai/graphs/largest-ai-data-centers-by-power-capacity",
+   "date": "2026-11-06"
+  },
+  "epoch-new-carlisle": {
+   "publisher": "Epoch AI",
+   "title": "Anthropic–Amazon New Carlisle (data center directory)",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/anthropic-amazon-new-carlisle",
+   "date": "2026-10-19"
+  },
+  "techcrunch-hyperion": {
+   "publisher": "TechCrunch",
+   "title": "Mark Zuckerberg says Meta is building a 5GW AI data center",
+   "url": "https://techcrunch.com/2025/07/14/mark-zuckerberg-says-meta-is-building-a-5gw-ai-data-center",
+   "date": "2025-07-14"
+  },
+  "google-pue": {
+   "publisher": "Google",
+   "title": "Data center efficiency (PUE by campus)",
+   "url": "https://www.datacenters.google/efficiency",
+   "date": "2026 Q2 table, accessed 2026-11-09"
+  },
+  "nlr-esif": {
+   "publisher": "National Laboratory of the Rockies (formerly NREL)",
+   "title": "Measuring efficiency: PUE (ESIF HPC data center)",
+   "url": "https://www.nlr.gov/computational-science/measuring-efficiency-pue",
+   "date": "2026-02-17"
+  },
+  "immersion-review": {
+   "publisher": "arXiv",
+   "title": "Enough Hot Air: The Role of Immersion Cooling (review)",
+   "url": "https://arxiv.org/pdf/2205.04257",
+   "date": "2022-05"
+  },
+  "meta-dc": {
+   "publisher": "Meta",
+   "title": "Data centers (sustainability)",
+   "url": "https://sustainability.atmeta.com/data-centers",
+   "date": "2024 (2023 data)"
+  },
+  "ms-zero-water": {
+   "publisher": "Microsoft",
+   "title": "Sustainable by design: next-generation datacenters consume zero water for cooling",
+   "url": "https://microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling",
+   "date": "2024-12-09"
+  },
+  "dcd-rubin-45": {
+   "publisher": "DatacenterDynamics",
+   "title": "Vera Rubin hot water cooling reveal triggers HVAC share drop",
+   "url": "https://www.datacenterdynamics.com/en/news/vera-rubin-hot-water-cooling-reveal-triggers-hvac-share-drop",
+   "date": "2026-01"
+  },
+  "coolit-45": {
+   "publisher": "CoolIT Systems",
+   "title": "Warm water cooling and AI: the future is here, but it's not chiller-free",
+   "url": "https://www.coolitsystems.com/resources/news/warm-water-cooling-and-ai-the-future-is-here-but-its-not-chiller-free/",
+   "date": "2026-01-20"
+  },
+  "ramboll-odense": {
+   "publisher": "Ramboll",
+   "title": "Meta surplus heat to district heating (Odense)",
+   "url": "https://www.ramboll.com/en-us/projects/energy/meta-surplus-heat-to-district-heating",
+   "date": "2023"
+  },
+  "fortum-2026": {
+   "publisher": "Fortum",
+   "title": "Fortum has started heat production at two large data centre sites in Finland",
+   "url": "https://www.fortum.com/media/2026/05/fortum-has-started-heat-production-two-large-data-centre-sites-finland",
+   "date": "2026-05-06"
+  },
+  "stockholm-como": {
+   "publisher": "EU Covenant of Mayors",
+   "title": "Case study: Stockholm open district heating",
+   "url": "https://eu-mayors.ec.europa.eu/sites/default/files/2023-10/2023_CoMo_CaseStudy_Stockholm_SE.pdf",
+   "date": "2023-10"
+  },
+  "gcp-carbon-2025": {
+   "publisher": "Google Cloud",
+   "title": "region-carbon-info, yearly 2025",
+   "url": "https://github.com/GoogleCloudPlatform/region-carbon-info/blob/main/data/yearly/2025.csv",
+   "date": "2025 data, accessed 2026-11-09"
+  },
+  "emaps-se-2025": {
+   "publisher": "Electricity Maps",
+   "title": "Electricity Grid Review 2025: Sweden",
+   "url": "https://www.electricitymaps.com/grid-in-review-2025/sweden",
+   "date": "2026-11-06"
+  },
+  "wnn-kairos": {
+   "publisher": "World Nuclear News",
+   "title": "Google, Kairos Power, TVA announce collaboration",
+   "url": "https://world-nuclear-news.org/articles/google-kairos-power-tva-announce-collaboration",
+   "date": "2025-08-19"
+  },
+  "wnn-xenergy": {
+   "publisher": "World Nuclear News",
+   "title": "Amazon invests in X-energy, unveils SMR project plans",
+   "url": "https://world-nuclear-news.org/articles/amazon-invests-in-x-energy-unveils-smr-project-plans",
+   "date": "2024-10"
+  },
+  "mgk-saft": {
+   "publisher": "Microgrid Knowledge",
+   "title": "Microsoft replaces diesel generators with Saft batteries at Swedish data center",
+   "url": "https://www.microgridknowledge.com/energy-storage-microgrid/article/33012640/microsoft-replaces-diesel-generators-with-saft-batteries-at-swedish-data-center-microgrid",
+   "date": "2023-10-04"
+  },
+  "ms-hydrogen": {
+   "publisher": "Microsoft",
+   "title": "Hydrogen fuel cells could provide emission-free backup power at datacenters",
+   "url": "https://news.microsoft.com/source/features/sustainability/hydrogen-fuel-cells-could-provide-emission-free-backup-power-at-datacenters-microsoft-says/",
+   "date": "2022-07-28"
+  },
+  "storaenso-falun": {
+   "publisher": "Stora Enso",
+   "title": "The world's first mass timber data centre",
+   "url": "https://www.storaenso.com/en/newsroom/news/2025/11/the-worlds-first-mass-timber-data-centre",
+   "date": "2025-11"
+  },
+  "ecodc-wood": {
+   "publisher": "EcoDataCenter",
+   "title": "Why wood works",
+   "url": "https://ecodatacenter.tech/whywoodworks",
+   "date": "2025-12"
+  },
+  "ms-timber": {
+   "publisher": "Microsoft",
+   "title": "Microsoft builds first datacenters with wood to slash carbon emissions",
+   "url": "https://news.microsoft.com/source/features/sustainability/microsoft-builds-first-datacenters-with-wood-to-slash-carbon-emissions/",
+   "date": "2024-10"
+  },
+  "nvidia-inference": {
+   "publisher": "NVIDIA",
+   "title": "AI inference (GB300 NVL72 performance per watt)",
+   "url": "https://www.nvidia.com/en-us/solutions/ai/inference/",
+   "date": "2026"
+  },
+  "loudoun-noise": {
+   "publisher": "Loudoun County",
+   "title": "Data centers: noise and air quality",
+   "url": "https://www.loudoun.gov/6405/Data-Centers-Noise-and-Air-Quality",
+   "date": "accessed 2026-11-09"
+  },
+  "minooka-sound": {
+   "publisher": "Village of Minooka",
+   "title": "Sound study, planning and zoning",
+   "url": "https://www.minooka.com/media/nmcpzgnm/pages-from-sound-study-planning-zoning-sept-9-2025.pdf",
+   "date": "2025-09-09"
+  },
+  "latitude-emerald": {
+   "publisher": "Latitude Media",
+   "title": "Nvidia and Oracle tapped this startup to flex a Phoenix data center",
+   "url": "https://www.latitudemedia.com/news/nvidia-and-oracle-tapped-this-startup-to-flex-a-phoenix-data-center/",
+   "date": "2025-07"
+  },
+  "dcd-google-dr": {
+   "publisher": "DatacenterDynamics",
+   "title": "Google partners with I&M and TVA to expand demand response at its AI data centers",
+   "url": "https://www.datacenterdynamics.com/en/news/google-partners-with-im-and-tva-to-expand-use-of-demand-response-at-its-ai-data-centers/",
+   "date": "2025-08-04"
+  },
+  "smhi-temp": {
+   "publisher": "SMHI",
+   "title": "Normal monthly temperature 1991–2020 (station Luleå-Kallax)",
+   "url": "https://www.smhi.se/data/temperatur-och-vind/temperatur/dataserier-med-normalvarden-for-perioden-1991-2020",
+   "date": "2021-06-04"
+  },
+  "smhi-tmax": {
+   "publisher": "SMHI",
+   "title": "Mean daily maximum 1991–2020 (station Luleå-Kallax)",
+   "url": "https://www.smhi.se/download/18.18f5a56618fc9f08e8313e99/1741339945094/Tmax-1991-2020.xlsx",
+   "date": "2022-10-10"
+  },
+  "svt-lulea-heat": {
+   "publisher": "SVT Nyheter Norrbotten",
+   "title": "Saknas viktiga värmekällor – Luleås fjärrvärme kan bli dyrare",
+   "url": "https://www.svt.se/nyheter/lokalt/norrbotten/saknas-viktiga-varmekallor-luleas-fjarrvarme-kan-bli-dyrare",
+   "date": "2026-03-04"
+  },
+  "lulekraft-2019": {
+   "publisher": "LuleKraft AB",
+   "title": "Annual report 2019",
+   "url": "https://lulekraft.se/media/0laf23q3/2020-05_lulekraft_arsredovisning.pdf",
+   "date": "2020-05"
+  },
+  "meta-lulea": {
+   "publisher": "Meta",
+   "title": "Data center update: Luleå goes live",
+   "url": "https://about.fb.com/news/2013/06/data-center-update-lulea-goes-live/",
+   "date": "2013-06-12"
+  }
+ },
+ "facts": {
+  "itCapacity": {
+   "value": 1500,
+   "unit": "MW",
+   "status": "chosen",
+   "tier": "choice",
+   "note": "Chosen for this model: about 45% more than the largest datacenter estimated to be running today.",
+   "asOf": "2026-11"
+  },
+  "largestRunning": {
+   "value": 1037,
+   "unit": "MW",
+   "status": "study",
+   "tier": "proven",
+   "source": [
+    "epoch-largest",
+    "epoch-new-carlisle"
+   ],
+   "asOf": "2026-11-06",
+   "note": "Anthropic–Amazon New Carlisle (Indiana), IT power estimated by Epoch AI from satellite images and permits; not confirmed by the operator. xAI Colossus 2 is close (≈946 MW)."
+  },
+  "largestPlanned": {
+   "value": 5000,
+   "unit": "MW",
+   "status": "operator",
+   "tier": "promised",
+   "source": [
+    "techcrunch-hyperion"
+   ],
+   "asOf": "2025-07-14",
+   "note": "Meta Hyperion, Louisiana, eventual capacity announced by Mark Zuckerberg. Epoch AI projects about 1,632 MW by 2028."
+  },
+  "pue": {
+   "value": 1.04,
+   "status": "operator",
+   "tier": "proven",
+   "source": [
+    "google-pue"
+   ],
+   "asOf": "2025 (trailing 12 months, every quarter)",
+   "note": "Lowest campus PUE in Google's published table: Central Ohio (Lancaster). A small research HPC site (NREL ESIF) reports 1.036."
+  },
+  "pueResearch": {
+   "value": "1.02–1.03",
+   "status": "study",
+   "tier": "research",
+   "source": [
+    "immersion-review"
+   ],
+   "asOf": "2022",
+   "note": "Range reported across immersion-cooling studies; cooling part only."
+  },
+  "facilityPower": {
+   "value": 1560.0,
+   "unit": "MW",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "IT capacity × PUE",
+   "inputs": [
+    "itCapacity",
+    "pue"
+   ]
+  },
+  "energyYear": {
+   "value": 13665.6,
+   "unit": "GWh/yr",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "facility power × 8,760 h",
+   "inputs": [
+    "facilityPower"
+   ],
+   "note": "At full load all year: an upper bound. Real sites run below their capacity (FRA21 averaged about a third)."
+  },
+  "overheadYear": {
+   "value": 525.6,
+   "unit": "GWh/yr",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "IT capacity × (PUE − 1) × 8,760 h",
+   "inputs": [
+    "itCapacity",
+    "pue"
+   ]
+  },
+  "coolant": {
+   "value": 45,
+   "unit": "°C",
+   "status": "vendor-claim",
+   "tier": "promised",
+   "source": [
+    "dcd-rubin-45",
+    "coolit-45"
+   ],
+   "asOf": "2026-01",
+   "note": "NVIDIA Vera Rubin: liquid at 45 °C straight to the chips; NVIDIA says no chillers are needed. Cooling makers say some sites will still need them."
+  },
+  "julyMax": {
+   "value": 20.4,
+   "unit": "°C",
+   "status": "reference",
+   "tier": "proven",
+   "source": [
+    "smhi-tmax"
+   ],
+   "asOf": "1991–2020",
+   "note": "Luleå-Kallax, July average daily high."
+  },
+  "hotDays": {
+   "value": 0.2,
+   "unit": "days/yr",
+   "status": "reference",
+   "tier": "proven",
+   "source": [
+    "smhi-tmax"
+   ],
+   "asOf": "1991–2020",
+   "note": "Days a year reaching 30 °C at Luleå-Kallax."
+  },
+  "annualMean": {
+   "value": 2.9,
+   "unit": "°C",
+   "status": "reference",
+   "tier": "proven",
+   "source": [
+    "smhi-temp"
+   ],
+   "asOf": "1991–2020"
+  },
+  "wueProven": {
+   "value": 0.2,
+   "unit": "L/kWh",
+   "status": "operator",
+   "tier": "proven",
+   "source": [
+    "meta-dc"
+   ],
+   "asOf": "2023",
+   "note": "Meta's fleet average: the lowest fleet WUE we found."
+  },
+  "waterProvenM3": {
+   "value": 2628000,
+   "unit": "m³/yr",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "IT energy at full load × 0.20 L/kWh",
+   "inputs": [
+    "itCapacity",
+    "wueProven"
+   ]
+  },
+  "waterProvenDay": {
+   "value": 7200,
+   "unit": "m³/day",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "yearly water ÷ 365",
+   "inputs": [
+    "waterProvenM3"
+   ]
+  },
+  "zeroWater": {
+   "value": "no water evaporated for cooling",
+   "status": "operator",
+   "tier": "promised",
+   "source": [
+    "ms-zero-water"
+   ],
+   "asOf": "2024-12-09",
+   "note": "Microsoft's closed-loop design, announced August 2024; first sites in Phoenix and Mt Pleasant from 2026, online late 2027. Microsoft: avoids more than 125 million litres a year per datacenter, at a slightly higher PUE."
+  },
+  "zeroWaterProven": {
+   "value": "closed warm-water loop with dry coolers",
+   "status": "reference",
+   "tier": "proven",
+   "source": [
+    "nlr-esif"
+   ],
+   "asOf": "2026",
+   "note": "Already done at small scale: NREL's ESIF supercomputer centre."
+  },
+  "heatYear": {
+   "value": 13140,
+   "unit": "GWh/yr",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "IT energy at full load (almost all of it ends up as heat)",
+   "inputs": [
+    "itCapacity"
+   ]
+  },
+  "luleaHeat": {
+   "value": 823,
+   "unit": "GWh/yr",
+   "status": "operator",
+   "tier": "proven",
+   "source": [
+    "lulekraft-2019"
+   ],
+   "asOf": "2019",
+   "note": "District heat delivered by LuleKraft to Luleå Energi; the most recent public figure. About 31,000 households are connected (SVT, 2026)."
+  },
+  "luleaGas": {
+   "value": "the town's main heat source, gas from the SSAB blast furnace, is due to shut in 2030",
+   "status": "press",
+   "tier": "proven",
+   "source": [
+    "svt-lulea-heat"
+   ],
+   "asOf": "2026-03-04"
+  },
+  "heatTimesLulea": {
+   "value": 16,
+   "unit": "×",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "heat a year ÷ Luleå's district heat",
+   "inputs": [
+    "heatYear",
+    "luleaHeat"
+   ]
+  },
+  "erfMax": {
+   "value": 6.0,
+   "unit": "%",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "Luleå's district heat ÷ campus energy",
+   "inputs": [
+    "luleaHeat",
+    "energyYear"
+   ],
+   "note": "Even if the campus heated all of Luleå all year (it cannot in summer), it would reuse only this share of its energy. Germany's law asks new sites for 20% from 2028."
+  },
+  "odense": {
+   "value": "≈ 45 MW of heat, 215,000 MWh recovered, more than 12,000 homes (2023)",
+   "status": "press",
+   "tier": "proven",
+   "source": [
+    "ramboll-odense"
+   ],
+   "asOf": "2023",
+   "note": "Meta Odense, Denmark: heat pumps lift server heat to 70–75 °C for the town network."
+  },
+  "espoo": {
+   "value": "about 40% of the district heat of Espoo, Kauniainen and Kirkkonummi (≈ 2 TWh a year)",
+   "status": "operator",
+   "tier": "promised",
+   "source": [
+    "fortum-2026"
+   ],
+   "asOf": "2026-05-06",
+   "note": "Fortum and Microsoft; heat plants started May 2026, heat from the datacenters from 2027."
+  },
+  "gridCO2": {
+   "value": 21.3,
+   "unit": "g CO₂/kWh",
+   "status": "reference",
+   "tier": "proven",
+   "source": [
+    "emaps-se-2025"
+   ],
+   "asOf": "2025",
+   "note": "Sweden, counting imports and exports. No figure for Luleå's own bidding zone (SE1) was found."
+  },
+  "co2Year": {
+   "value": 291077,
+   "unit": "t CO₂/yr",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "energy a year × 21.3 g/kWh",
+   "inputs": [
+    "energyYear",
+    "gridCO2"
+   ],
+   "note": "Location-based, at full load."
+  },
+  "cfeStockholm": {
+   "value": 100,
+   "unit": "%",
+   "status": "operator",
+   "tier": "proven",
+   "source": [
+    "gcp-carbon-2025"
+   ],
+   "asOf": "2025",
+   "note": "Google's Stockholm cloud region: carbon-free electricity hour by hour (rounded)."
+  },
+  "nuclearPromise": {
+   "value": "Google–Kairos: 500 MW of small reactors by 2035, first 50 MW unit from 2030; Amazon–X-energy: up to 5 GW by 2039",
+   "status": "operator",
+   "tier": "promised",
+   "source": [
+    "wnn-kairos",
+    "wnn-xenergy"
+   ],
+   "asOf": "2025",
+   "note": "No small modular reactor powers a datacenter today."
+  },
+  "battery": {
+   "value": "16 MWh of batteries, 80 minutes",
+   "status": "press",
+   "tier": "proven",
+   "source": [
+    "mgk-saft"
+   ],
+   "asOf": "2023-10-04",
+   "note": "Replaced diesel generators at a Microsoft datacenter in Sweden (site not named)."
+  },
+  "batteryScaled": {
+   "value": 2080,
+   "unit": "MWh",
+   "status": "derived",
+   "tier": "calculated",
+   "formula": "facility power × 80 minutes",
+   "inputs": [
+    "facilityPower"
+   ],
+   "note": "What the same 80 minutes would take at this size."
+  },
+  "hydrogen": {
+   "value": "3 MW hydrogen fuel cell passed Microsoft's generator tests",
+   "status": "operator",
+   "tier": "research",
+   "source": [
+    "ms-hydrogen"
+   ],
+   "asOf": "2022-07-28"
+  },
+  "timber": {
+   "value": "about 95% of the frame in cross-laminated timber; operator claims up to 60% lower embodied carbon",
+   "status": "operator",
+   "tier": "proven",
+   "source": [
+    "storaenso-falun",
+    "ecodc-wood"
+   ],
+   "asOf": "2025",
+   "note": "EcoDataCenter, Falun, Sweden."
+  },
+  "timberMs": {
+   "value": "35% less embodied carbon than steel, 65% less than precast concrete (estimated)",
+   "status": "operator",
+   "tier": "promised",
+   "source": [
+    "ms-timber"
+   ],
+   "asOf": "2024-10",
+   "note": "Microsoft, two hybrid-timber datacenters in Northern Virginia."
+  },
+  "chips": {
+   "value": "up to 50× more AI output per watt than the previous generation",
+   "status": "vendor-claim",
+   "tier": "promised",
+   "source": [
+    "nvidia-inference"
+   ],
+   "asOf": "2026",
+   "note": "NVIDIA GB300 vs Hopper, for specific models and settings; later tests show up to 25×."
+  },
+  "noiseMeasured": {
+   "value": 55,
+   "unit": "dB(A)",
+   "status": "reference",
+   "tier": "proven",
+   "source": [
+    "loudoun-noise"
+   ],
+   "asOf": "2026",
+   "note": "Loudoun County: readings at the home next to a Vantage campus never went above this."
+  },
+  "noiseNight": {
+   "value": 45,
+   "unit": "dB(A)",
+   "status": "study",
+   "tier": "promised",
+   "source": [
+    "minooka-sound"
+   ],
+   "asOf": "2025-09-09",
+   "note": "Night limit at the nearest home that a sound study says low-noise coolers and sound walls can meet."
+  },
+  "flex": {
+   "value": 25,
+   "unit": "%",
+   "status": "press",
+   "tier": "proven",
+   "source": [
+    "latitude-emerald"
+   ],
+   "asOf": "2025-07",
+   "note": "Emerald AI cut an Oracle datacenter's AI power by 25% for 3 hours during a grid peak in Phoenix (256 GPUs)."
+  },
+  "flexDeals": {
+   "value": "Google agreed to cut machine-learning power on request of two US utilities",
+   "status": "press",
+   "tier": "promised",
+   "source": [
+    "dcd-google-dr"
+   ],
+   "asOf": "2025-08-04"
+  },
+  "neighbour": {
+   "value": "Meta Luleå, running since 2013; no public heat-export deal found",
+   "status": "operator",
+   "tier": "proven",
+   "source": [
+    "meta-lulea"
+   ],
+   "asOf": "2013-06-12"
+  }
+ }
+}

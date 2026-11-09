@@ -1,0 +1,2665 @@
+{
+ "meta": {
+  "title": "Datacenter teardown: baseline data",
+  "version": 2,
+  "compiled": "2026-11-08",
+  "purpose": "What real German datacenters do now. New studies and technologies are added as scenarios and compared against this baseline.",
+  "conventions": {
+   "fact": "Every number is an object: { value, unit, status, source, asOf, note? }. 'source' is a key in 'sources' (or a list of keys). Derived facts carry 'formula' and 'inputs' instead of a single source.",
+   "statuses": {
+    "reported": "Self-reported by the operator to the German datacenter register (RZReg). Official filing, not independently audited.",
+    "permitted": "Fixed in an official permit or binding plan (a limit or an approved design). Says what is allowed or built, not what is measured.",
+    "operator": "Stated by the operator in its own press release or website.",
+    "derived": "Calculated by us from other values in this file. Formula and inputs are listed.",
+    "press": "From third-party news coverage.",
+    "regulation": "A legal requirement currently in force.",
+    "draft-law": "In a government bill that has not passed parliament.",
+    "reference": "Official statistic used for everyday comparisons.",
+    "vendor-claim": "A manufacturer's claim, not yet confirmed by independent operation.",
+    "not-public": "Exists, but is not published. The entry says where it is held and how it could be requested.",
+    "study": "A published study. The source says who commissioned it (government, industry or independent).",
+    "chosen": "A choice made for a model, not a measured or reported value (used for the fictional ideal datacenter)."
+   },
+   "wue": "WUE = litres of water per kWh of IT energy (EN 50600-4-9 / EnEfG). IT energy is not in the register, so we approximate it as total energy / PUE."
+  },
+  "verdicts": {
+   "supported": "The evidence backs it.",
+   "depends": "True in some cases, not others.",
+   "not-supported": "The evidence does not back it as stated.",
+   "no-data": "There is not enough public evidence to say."
+  }
+ },
+ "sources": {
+  "rzreg": {
+   "title": "Energieeffizienzregister für Rechenzentren (RZReg), public portal, per-site annual reports",
+   "publisher": "Bundesministerium für Wirtschaft und Energie / BfEE",
+   "url": "https://rechenzentrumsregister.bund.de/de/annual-reports/",
+   "api": "https://rechenzentrumsregister.bund.de/api/portal-d/datacenters",
+   "localCopy": "data/rzreg-sites.json",
+   "reportingYear": 2025,
+   "reportingYearEvidence": "The portal states: 'Hier sehen Sie die veröffentlichten Jahresmeldungen für das letzte Berichtsjahr.' The API's list of submitted years (/common/submittedYears) is 2023, 2024, 2025, so the latest reporting year is 2025.",
+   "retrieved": "2026-11-08"
+  },
+  "rzreg-launch": {
+   "title": "Rechenzentrumsregister: Öffentliches RZReg ab sofort online",
+   "publisher": "BfEE",
+   "url": "https://www.bfee-online.de/SharedDocs/Kurzmeldungen/BfEE/DE/Effizienzpolitik/260814_rzreg_livegang_portal_d.html",
+   "date": "2026-08-14"
+  },
+  "permit-fra22": {
+   "title": "Genehmigungsbescheid Rechenzentrum Raunheim FRA22 (BImSchG, emergency diesel generators)",
+   "publisher": "Regierungspräsidium Darmstadt",
+   "url": "https://rp-darmstadt.hessen.de/sites/rp-darmstadt.hessen.de/files/2024-03/24_02_16_genehmigungsbescheid_final_rz_raunheim_vantage_fra_22_gez.pdf",
+   "localCopy": "data/permits/fra22.pdf",
+   "date": "2024-02-16",
+   "retrieved": "2026-11-08"
+  },
+  "permit-fra32": {
+   "title": "Genehmigungsbescheid Rechenzentrum Raunheim FRA32 (BImSchG, emergency diesel generators)",
+   "publisher": "Regierungspräsidium Darmstadt",
+   "url": "https://rp-darmstadt.hessen.de/sites/rp-darmstadt.hessen.de/files/2026-05/besch_ie-rz_raunheim_vantage_fra_32_2026_03_23.pdf",
+   "localCopy": "data/permits/fra32.pdf",
+   "date": "2026-03-23",
+   "dateNote": "Page footers say 'vom 23. März 2023', but the file name, case number (#2024) and the authority's notice all give 23 March 2026. We use 2026.",
+   "retrieved": "2026-11-08"
+  },
+  "notice-fra32": {
+   "title": "Öffentliche Bekanntmachung, RZ Raunheim (FRA32)",
+   "publisher": "Regierungspräsidium Darmstadt",
+   "url": "https://rp-darmstadt.hessen.de/sites/rp-darmstadt.hessen.de/files/2026-04/zoeb_oeb_rz_raunheim_2026_05_18.pdf"
+  },
+  "vantage-2022-11": {
+   "title": "Vantage Data Centers Opens Three New Facilities in Berlin and Frankfurt, Establishes Office in Raunheim, Germany",
+   "publisher": "Vantage Data Centers",
+   "url": "https://vantage-dc.com/news/vantage-data-centers-opens-three-new-facilities-in-berlin-and-frankfurt-establishes-office-in-raunheim-germany",
+   "date": "2022-11-03",
+   "retrieved": "2026-11-08"
+  },
+  "vantage-2022-07": {
+   "title": "Vantage Data Centers Opens Johannesburg Data Center Campus, Breaks Ground on Additional Data Center in Frankfurt",
+   "publisher": "Vantage Data Centers",
+   "url": "https://vantage-dc.com/news/vantage-data-centers-opens-johannesburg-data-center-campus-breaks-ground-on-additional-data-center-in-frankfurt/",
+   "date": "2022-07-25",
+   "retrieved": "2026-11-08"
+  },
+  "hochheimer-sale": {
+   "title": "Raunheimer Rechenzentren wechseln den Besitzer",
+   "publisher": "Hochheimer Zeitung",
+   "url": "https://www.hochheimer-zeitung.de/lokales/kreis-gross-gerau/raunheim/raunheimer-rechenzentren-wechseln-den-besitzer-4257801"
+  },
+  "raunheim-2023-548": {
+   "title": "Drucksache 2023-548: Bebauungsplan 61.23.44 'Am Pfarrgarten', Beschluss seiner 1. Änderung",
+   "publisher": "Stadt Raunheim",
+   "url": "https://rim.ekom21.de/raunheim/sdnetrim/UGhVM0hpd2NXNFdFcExjZbOHKxDc1OCtm57gHSNGs3c938eDrOSaDIG5gvzyIiv5/Beschlussvorlage_2023-548.pdf",
+   "localCopy": "data/planning/raunheim-drucksache-2023-548.pdf",
+   "date": "2023-09-11",
+   "retrieved": "2026-11-08"
+  },
+  "tcloud-biere": {
+   "title": "Rechenzentrum Biere: Zahlen und Fakten",
+   "publisher": "T Cloud Public (Deutsche Telekom)",
+   "url": "https://www.t-cloud-public.com/en/blog/cloud-computing/data-center-biere",
+   "date": "2023-04-06",
+   "retrieved": "2026-11-08"
+  },
+  "kfw-biere": {
+   "title": "In Biere steht Deutschlands größtes Cloud-Rechenzentrum (interview with T-Systems manager Johannes Krafczyk)",
+   "publisher": "KfW",
+   "url": "https://www.kfw.de/stories/kfw/stories/wirtschaft/infrastruktur/cloud-rechenzentrum-biere-in-sachsen-anhalt/"
+  },
+  "golem-biere": {
+   "title": "Biere in Sachsen-Anhalt: Telekom-Cloud-Rechenzentrum wird zehn Jahre alt",
+   "publisher": "Golem.de",
+   "url": "https://www.golem.de/news/biere-in-sachsen-anhalt-telekom-cloud-rechenzentrum-wird-zehn-jahre-alt-2407-186667.html",
+   "date": "2024-07"
+  },
+  "yondr-opening": {
+   "title": "Yondr Group nimmt neues 40-MW-Rechenzentrum bei Frankfurt in Betrieb",
+   "publisher": "hardwarewartung.com",
+   "url": "https://www.hardwarewartung.com/yondr-group-nimmt-neues-40-mw-rechenzentrum-bei-frankfurt-in-betrieb/"
+  },
+  "enefg-statute": {
+   "title": "Energieeffizienzgesetz (EnEfG) § 11, current text",
+   "publisher": "Bundesministerium der Justiz, gesetze-im-internet.de",
+   "url": "https://www.gesetze-im-internet.de/enefg/__11.html",
+   "retrieved": "2026-11-08"
+  },
+  "enefg-bill-2026": {
+   "title": "Drucksache 21/8027: Entwurf eines Gesetzes zur Beschleunigung der Umsetzung der Energieeffizienzrichtlinie",
+   "publisher": "Deutscher Bundestag (Gesetzentwurf der Bundesregierung)",
+   "url": "https://dserver.bundestag.de/btd/21/080/2108027.pdf",
+   "localCopy": "data/law/bt-drucksache-21-8027.pdf",
+   "date": "2026-09-16",
+   "retrieved": "2026-11-08"
+  },
+  "bundestag-first-reading": {
+   "title": "Beschleunigte Umsetzung der Energieeffizienzrichtlinie beraten",
+   "publisher": "Deutscher Bundestag",
+   "url": "https://www.bundestag.de/dokumente/textarchiv/2026/kw39-de-energieeffizienzrichtlinie-1211306",
+   "date": "2026-09-24"
+  },
+  "uba-household-water": {
+   "title": "Wassernutzung privater Haushalte",
+   "publisher": "Umweltbundesamt (data: Statistisches Bundesamt)",
+   "url": "https://www.umweltbundesamt.de/node/21909",
+   "date": "2024-09-10",
+   "retrieved": "2026-11-08"
+  },
+  "nvidia-45c": {
+   "title": "Why NVIDIA's 45°C Coolant Innovation Drives Water Positivity",
+   "publisher": "Data Centre Magazine",
+   "url": "https://datacentremagazine.com/news/why-nvidias-45-c-coolant-innovation-drives-water-positivity",
+   "date": "2026-06"
+  },
+  "nvidia-critique": {
+   "title": "What does NVIDIA Rubin really mean for data centre cooling?",
+   "publisher": "Compass Datacenters",
+   "url": "https://www.compassdatacenters.com/in-the-news/nvidia-rubin-liquid-cooling-reality-vs-hype/"
+  },
+  "permit-fra21": {
+   "title": "Genehmigungsbescheid VDC FRA21 GmbH (BImSchG, emergency diesel generators)",
+   "publisher": "Regierungspräsidium Darmstadt",
+   "url": "https://rp-darmstadt.hessen.de/sites/rp-darmstadt.hessen.de/files/2026-05/fra21_rechenzentrum_genehmigungsbescheid_final.pdf",
+   "localCopy": "data/permits/fra21.pdf",
+   "date": "2023-03-31",
+   "retrieved": "2026-11-08"
+  },
+  "bmwk-2025": {
+   "title": "Stand und Entwicklung des Rechenzentrumsstandorts Deutschland (Gutachten im Auftrag des BMWK)",
+   "publisher": "Bundesministerium für Wirtschaft und Klimaschutz (commissioned study)",
+   "url": "https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Publikationen/Technologie/stand-und-entwicklung-des-rechenzentrumsstandorts-deutschland.pdf?__blob=publicationFile&v=1",
+   "localCopy": "data/studies/bmwk-rz-standort.pdf",
+   "date": "2025-01-17",
+   "retrieved": "2026-11-08"
+  },
+  "destatis-household": {
+   "title": "Stromverbrauch der privaten Haushalte (UGR)",
+   "publisher": "Statistisches Bundesamt (Destatis)",
+   "url": "https://destatis.de/DE/Themen/Gesellschaft-Umwelt/Umwelt/UGR/private-haushalte/Tabellen/stromverbrauch-haushalte.html",
+   "date": "2023-09-27"
+  },
+  "oekotest-phone": {
+   "title": "Was kostet es eigentlich, sein Handy aufzuladen?",
+   "publisher": "Öko-Test",
+   "url": "https://www.oekotest.de/freizeit-technik/was-kostet-es-eigentlich-sein-handy-aufzuladen-75-7-5-oder-0-75-cent_13690_1.html",
+   "date": "2024-07-09"
+  },
+  "hsl-population": {
+   "title": "Bevölkerung in Hessen am 31. Dezember 2025 (Statistischer Bericht A I 2 hj 2/25)",
+   "publisher": "Hessisches Statistisches Landesamt",
+   "url": "https://statistik.hessen.de/sites/statistik.hessen.de/files/2026-07/ai2_aii_aiii_av_25-2hj.pdf",
+   "date": "2026-07"
+  },
+  "uba-gross-electricity": {
+   "title": "Bruttostromverbrauch (Abbildung, Stand 02/2026)",
+   "publisher": "Umweltbundesamt (data: AG Energiebilanzen)",
+   "url": "https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/2_Abb_Bruttostromverbrauch_2026-05-15.pdf",
+   "date": "2026-05-15"
+  },
+  "bitkom-2025": {
+   "title": "Rechenzentren in Deutschland: KI treibt Wachstum",
+   "publisher": "Bitkom (study by Borderstep Institut)",
+   "url": "https://www.bitkom.org/Presse/Presseinformation/Rechenzentren-Deutschland-KI-treibt-Wachstum",
+   "date": "2025-11-10"
+  },
+  "google-gemini-energy": {
+   "title": "Measuring the environmental impact of delivering AI at Google Scale (arXiv 2508.15734)",
+   "publisher": "Google",
+   "url": "https://arxiv.org/html/2508.15734v1",
+   "date": "2025-08"
+  },
+  "altman-2025": {
+   "title": "The Gentle Singularity",
+   "publisher": "Sam Altman (OpenAI CEO), blog",
+   "url": "https://blog.samaltman.com/the-gentle-singularity",
+   "date": "2025-06-10"
+  },
+  "iea-streaming": {
+   "title": "The carbon footprint of streaming video: fact-checking the headlines",
+   "publisher": "IEA",
+   "url": "https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines",
+   "date": "2020-12"
+  },
+  "google-search-2009": {
+   "title": "Powering a Google search",
+   "publisher": "Google (official blog)",
+   "url": "https://googleblog.blogspot.com/2009/01/powering-google-search.html",
+   "date": "2009-01-11"
+  },
+  "zfk-syna": {
+   "title": "Vorerst kein Anschluss: Syna ist bei Rechenzentren ausgebucht",
+   "publisher": "ZfK (Zeitung für kommunale Wirtschaft)",
+   "url": "https://www.zfk.de/energie/strom/rechenzentren-anschluss-stromnetz-syna-ausgebucht",
+   "date": "2026-10-20",
+   "retrieved": "2026-11-08"
+  },
+  "hessenschau-study": {
+   "title": "Rechenzentren: kleine Branche, große Relevanz",
+   "publisher": "hessenschau (reporting a study commissioned by HTAI, Regionalverband FrankfurtRheinMain, Stadtplanungsamt and Wirtschaftsförderung Frankfurt)",
+   "url": "https://www.hessenschau.de/wirtschaft/rechenzentren---kleine-branche-grosse-relevanz-v1,rechenzentren-in-rhein-main-standortfaktor-100.html",
+   "date": "2025-12-08",
+   "retrieved": "2026-11-08"
+  },
+  "correctiv-2026": {
+   "title": "Rechenzentren boomen: Bundesregierung will Umweltvorgaben lockern",
+   "publisher": "Correctiv",
+   "url": "https://correctiv.org/aktuelles/2026/10/08/rechenzentren-boomen-bundesregierung-will-umweltvorgaben-lockern/",
+   "date": "2026-10-08"
+  },
+  "netzpolitik-water": {
+   "title": "KI und Rechenzentren: Bundesregierung weiß nicht, wie viel Wasser ihre Ausbaupläne schlucken",
+   "publisher": "netzpolitik.org",
+   "url": "https://netzpolitik.org/2026/ki-und-rechenzentren-bundesregierung-weiss-nicht-wieviel-wasser-ihre-ausbauplaene-schlucken",
+   "date": "2026-08-10"
+  },
+  "iea-energy-ai": {
+   "title": "Energy and AI, executive summary",
+   "publisher": "IEA",
+   "url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+   "date": "2025-04"
+  },
+  "bitkom-2024": {
+   "title": "Rechenzentren: Deutschland verliert Anschluss",
+   "publisher": "Bitkom (study by Borderstep Institut)",
+   "url": "https://www.bitkom.org/Presse/Presseinformation/Rechenzentren-Deutschland-verliert-Anschluss",
+   "date": "2024-11-21"
+  },
+  "oeko-institut-2025": {
+   "title": "Öko-Institut: Mindeststandards für Rechenzentren (press release)",
+   "publisher": "Öko-Institut via idw",
+   "url": "https://idw-online.de/de/news858639",
+   "date": "2025-09-24"
+  },
+  "bnetza-saidi": {
+   "title": "Stromversorgung 2024: SAIDI",
+   "publisher": "Bundesnetzagentur",
+   "url": "https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2025/20251009_Saidi_Strom.html",
+   "date": "2025-10-09"
+  },
+  "decix-2025": {
+   "title": "DE-CIX traffic statistics 2025 (press release)",
+   "publisher": "DE-CIX",
+   "url": "https://www.de-cix.net/",
+   "date": "2026-01"
+  },
+  "vantage-about": {
+   "title": "About Vantage Data Centers",
+   "publisher": "Vantage Data Centers",
+   "url": "https://vantage-dc.com/about-us/",
+   "retrieved": "2026-11-08"
+  },
+  "bitkom-2025-report": {
+   "title": "Rechenzentren in Deutschland: Aktuelle Marktentwicklungen (Update 2025)",
+   "publisher": "Bitkom (calculations by Borderstep Institut)",
+   "url": "https://www.bitkom.org/sites/main/files/2025-11/bitkom-studienbericht-rechenzentren-2025.pdf",
+   "date": "2025-11"
+  },
+  "decix-2026-01": {
+   "title": "DE-CIX: Zahl des Jahres (press release)",
+   "publisher": "DE-CIX",
+   "url": "https://www.de-cix.net/_Resources/Persistent/4/b/c/9/4bc9567acb2d50257430aa170017350040a1bb3e/2026%2001%2020%20PM%20Zahl%20des%20Jahres.pdf",
+   "date": "2026-01-20"
+  },
+  "iw-consult-2025": {
+   "title": "Rechenzentren in Frankfurt am Main und der Region (Kurzfassung)",
+   "publisher": "IW Consult, commissioned by HTAI, Regionalverband FrankfurtRheinMain, Stadtplanungsamt and Wirtschaftsförderung Frankfurt",
+   "url": "https://www.iwconsult.de/fileadmin/user_upload/pdfs/2025/studie_rechenzentren_kurzfassung.pdf",
+   "date": "2025"
+  },
+  "aws-regions": {
+   "title": "AWS Regions",
+   "publisher": "Amazon Web Services",
+   "url": "https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html"
+  },
+  "gcp-regions": {
+   "title": "Regions and zones",
+   "publisher": "Google Cloud",
+   "url": "https://docs.cloud.google.com/compute/docs/regions-zones"
+  },
+  "azure-regions": {
+   "title": "Azure regions list",
+   "publisher": "Microsoft",
+   "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-list"
+  },
+  "oracle-regions": {
+   "title": "Regions and Availability Domains",
+   "publisher": "Oracle",
+   "url": "https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm"
+  },
+  "ibm-regions": {
+   "title": "IBM Cloud locations",
+   "publisher": "IBM",
+   "url": "https://cloud.ibm.com/docs/overview?topic=overview-locations"
+  },
+  "uptime-2023": {
+   "title": "Global PUEs: are they going anywhere?",
+   "publisher": "Uptime Institute (industry survey, self-reported)",
+   "url": "https://journal.uptimeinstitute.com/global-pues-are-they-going-anywhere/",
+   "date": "2023-12-04"
+  },
+  "lbnl-2012": {
+   "title": "Data center energy efficiency (Labs21 workshop slides)",
+   "publisher": "Lawrence Berkeley National Laboratory",
+   "url": "https://datacenters.lbl.gov/sites/default/files/dc-labs21-10-1-2012.pdf",
+   "date": "2012-10-01"
+  },
+  "lbnl-2024": {
+   "title": "2024 United States Data Center Energy Usage Report (LBNL-2001637)",
+   "publisher": "Lawrence Berkeley National Laboratory for the US DOE",
+   "url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf",
+   "date": "2024-12"
+  },
+  "bitkom-2026": {
+   "title": "KI-Boom treibt Rechenzentren in Deutschland (press release)",
+   "publisher": "Bitkom (study by Borderstep Institut)",
+   "url": "https://www.bitkom.org/Presse/Presseinformation/KI-Boom-treibt-Rechenzentren-in-Deutschland",
+   "date": "2026-11-03"
+  },
+  "nvidia-2026": {
+   "title": "Hotter Than a Hot Tub: The 45°C Breakthrough …",
+   "publisher": "NVIDIA (blog)",
+   "url": "https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/",
+   "date": "2026-06-21"
+  },
+  "tga-lrz": {
+   "title": "Warmwasserkühlung für Höchstleistungsrechner",
+   "publisher": "TGA-Praxis (article by Fahrenheit GmbH, LRZ's chiller supplier)",
+   "url": "https://www.tga-praxis.de/sites/default/files/public/data-fachartikel/MGT_2021_06_Warmwasserkuehlung-fuer-Hoechstleistungsrechner_36-37.pdf",
+   "date": "2021"
+  },
+  "grundfos-liquid": {
+   "title": "Types of liquid cooling",
+   "publisher": "Grundfos",
+   "url": "https://www.grundfos.com/gh/learn/ecademy/all-courses/it-cooling/types-of-liquid-cooling"
+  },
+  "osm-main": {
+   "title": "OpenStreetMap: FRA21 address (Nominatim) and river Main centreline (way 416106354)",
+   "publisher": "OpenStreetMap contributors",
+   "url": "https://www.openstreetmap.org/way/416106354",
+   "retrieved": "2026-11-08"
+  },
+  "bplan-resart-8": {
+   "title": "B-Plan 61.23.32 „Resart-Ihm / BÜ-Ost“ 2. TA, 8. Änderung, Begründung (Entwurf)",
+   "publisher": "Stadt Raunheim",
+   "url": "https://rim.ekom21.de/raunheim/sdnetrim/UGhVM0hpd2NXNFdFcExjZSCAHGw1-D9qn7R4l-HC3h_E1G6xBVsDqPG1EnxPf6T4/Entwurf_Begruendung.pdf",
+   "date": "2021-03-31"
+  },
+  "hlnug-wsg": {
+   "title": "Water and spring protection zones (TWS_HQS_TK25)",
+   "publisher": "HLNUG, Hessen (not legally binding)",
+   "url": "https://geodienste-umwelt.hessen.de/arcgis/rest/services/inspire/bewirtschaftungsgebiete/MapServer",
+   "retrieved": "2026-11-08"
+  },
+  "raunheim-2023-499": {
+   "title": "Beschlussvorlage 2023-499 (sewer network)",
+   "publisher": "Stadt Raunheim",
+   "url": "https://rim.ekom21.de/raunheim/sdnetrim/UGhVM0hpd2NXNFdFcExjZVh_b3_J0GuzjGlFCGIcjYPbJDOnw_c5neB47VYzqSAT/Beschlussvorlage_2023-499.pdf",
+   "date": "2023-06-30"
+  },
+  "kreisgg-2026": {
+   "title": "Allgemeinverfügung: Einschränkung des Gemeingebrauchs an Oberflächengewässern",
+   "publisher": "Kreis Groß-Gerau",
+   "url": "https://www.kreisgg.de/fileadmin/Regionalentwicklung_Umwelt/Wasser_Bodenschutz/Downloads/2026-07-16_Allgemeinverfuegung_Einschraenkung_Gemeingebrauch_Oberflaechengewaesser.pdf",
+   "date": "2026-07-16"
+  },
+  "uba-cooling-chem": {
+   "title": "Einsatz umweltverträglicher Chemikalien in der Kühlwasserkonditionierung (Texte 70/02)",
+   "publisher": "Umweltbundesamt",
+   "url": "https://www.umweltbundesamt.de/system/files/medien/publikation/short/k2218.pdf",
+   "date": "2002"
+  },
+  "abwv-31": {
+   "title": "Abwasserverordnung, Anhang 31",
+   "publisher": "gesetze-im-internet.de",
+   "url": "https://www.gesetze-im-internet.de/abwv/anhang_31.html"
+  },
+  "uba-co2-2025": {
+   "title": "CO₂-Emissionen pro Kilowattstunde Strom 2025 nur leicht gesunken",
+   "publisher": "Umweltbundesamt",
+   "url": "https://www.umweltbundesamt.de/themen/co2-emissionen-pro-kilowattstunde-strom-2025-nur",
+   "date": "2026-03-23"
+  },
+  "ghg-scope2": {
+   "title": "GHG Protocol Scope 2 Guidance",
+   "publisher": "WRI / WBCSD",
+   "url": "https://ghgprotocol.org/sites/default/files/2023-03/Scope%202%20Guidance.pdf",
+   "date": "2015"
+  },
+  "awsv": {
+   "title": "Verordnung über Anlagen zum Umgang mit wassergefährdenden Stoffen (AwSV)",
+   "publisher": "gesetze-im-internet.de",
+   "url": "https://www.gesetze-im-internet.de/awsv/BJNR090500017.html"
+  },
+  "uba-dc-cooling": {
+   "title": "Rechenzentrumsklimatisierung",
+   "publisher": "Umweltbundesamt",
+   "url": "https://www.umweltbundesamt.de/themen/klima-energie/fluorierte-treibhausgase-fckw/natuerliche-kaeltemittel-in-stationaeren-anlagen/anwendungen/rechenzentrumsklimatisierung",
+   "date": "2024-04-18"
+  },
+  "dwd-normals": {
+   "title": "Multi-annual means 1991–2020, station 1420 Frankfurt/Main",
+   "publisher": "Deutscher Wetterdienst (open data)",
+   "url": "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/multi_annual/mean_91-20/",
+   "date": "2023-08-16"
+  },
+  "dwd-daily": {
+   "title": "Daily climate data, station 1420 Frankfurt/Main (recent, not yet fully quality-checked)",
+   "publisher": "Deutscher Wetterdienst (open data)",
+   "url": "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/recent/",
+   "retrieved": "2026-11-08"
+  },
+  "ashrae-2016": {
+   "title": "Thermal Guidelines for Data Processing Environments, 4th ed., errata (Table 2.1)",
+   "publisher": "ASHRAE",
+   "url": "https://www.ashrae.org/File%20Library/Technical%20Resources/Publication%20Errata%20and%20Updates/90577_errata.pdf",
+   "date": "2016-07-25"
+  },
+  "epri-2026": {
+   "title": "Powering Intelligence 2026: annual and peak electricity use",
+   "publisher": "EPRI (utility-funded research institute)",
+   "url": "https://powering-intelligence.epri.com/annual-peak-use.html",
+   "date": "2026"
+  },
+  "microsoft-water": {
+   "title": "Understanding water use at Microsoft datacenters",
+   "publisher": "Microsoft",
+   "url": "https://local.microsoft.com/blog/understanding-water-use-at-microsoft-datacenters/",
+   "date": "2026"
+  },
+  "lu-schall": {
+   "title": "Schall im Freien (Auszug)",
+   "publisher": "Kanton Luzern, Dienststelle Umwelt und Energie",
+   "url": "https://uwe.lu.ch/-/media/UWE/Dokumente/Themen/Laermschutz/auszug_Schall_im_Freien.pdf",
+   "retrieved": "2026-11-08"
+  }
+ },
+ "references": {
+  "householdWaterPerPerson": {
+   "value": 126,
+   "unit": "L/person/day",
+   "status": "reference",
+   "source": "uba-household-water",
+   "asOf": "2022",
+   "note": "Average drinking-water use in German households: 'Jede Person in Deutschland verwendete im Jahr 2022 im Schnitt täglich 126 Liter Trinkwasser'."
+  },
+  "householdElectricity": {
+   "value": 3383,
+   "unit": "kWh/yr",
+   "status": "reference",
+   "source": "destatis-household",
+   "asOf": "2021",
+   "note": "'Strom je Haushalt' 2021, average across all German households."
+  },
+  "phoneBattery": {
+   "value": 12.89,
+   "unit": "Wh",
+   "status": "press",
+   "source": "oekotest-phone",
+   "asOf": "2024",
+   "note": "iPhone 15 battery, 'laut Hersteller 12,89 Wh'."
+  },
+  "chargerEfficiency": {
+   "value": 0.8,
+   "unit": "",
+   "status": "press",
+   "source": "oekotest-phone",
+   "asOf": "2024",
+   "note": "Öko-Test assumes 'Wirkungsgrad von etwa 80 Prozent'."
+  },
+  "phoneCharge": {
+   "value": 16.1,
+   "unit": "Wh",
+   "status": "derived",
+   "formula": "phoneBattery / chargerEfficiency",
+   "inputs": [
+    "phoneBattery",
+    "chargerEfficiency"
+   ],
+   "note": "No agency publishes a per-charge figure; calculated from Öko-Test's battery size and charger efficiency."
+  },
+  "raunheimPopulation": {
+   "value": 15155,
+   "unit": "people",
+   "status": "reference",
+   "source": "hsl-population",
+   "asOf": "2025-12-31"
+  },
+  "germanyElectricity": {
+   "value": 526000000000.0,
+   "unit": "kWh/yr",
+   "status": "reference",
+   "source": "uba-gross-electricity",
+   "asOf": "2025",
+   "note": "Gross electricity consumption, incl. grid losses and own use."
+  },
+  "germanyDatacenters": {
+   "value": 21300000000.0,
+   "unit": "kWh/yr",
+   "status": "study",
+   "source": "bitkom-2025",
+   "asOf": "2025",
+   "note": "Estimate by Borderstep Institut for the industry association Bitkom; repeated by the federal government. The Öko-Institut cites about 26 TWh."
+  },
+  "aiPromptGoogle": {
+   "value": 0.24,
+   "unit": "Wh",
+   "status": "vendor-claim",
+   "source": "google-gemini-energy",
+   "asOf": "2025",
+   "note": "Median Gemini Apps text prompt, incl. datacenter overhead; excludes network, device and training."
+  },
+  "aiPromptOpenAI": {
+   "value": 0.34,
+   "unit": "Wh",
+   "status": "vendor-claim",
+   "source": "altman-2025",
+   "asOf": "2025",
+   "note": "Average ChatGPT query; no methodology published."
+  },
+  "streamingHour": {
+   "value": 77,
+   "unit": "Wh",
+   "status": "reference",
+   "source": "iea-streaming",
+   "asOf": "2019",
+   "note": "Whole chain: devices 72%, network 23%, datacenters 5%."
+  },
+  "webSearch": {
+   "value": 0.3,
+   "unit": "Wh",
+   "status": "vendor-claim",
+   "source": "google-search-2009",
+   "asOf": "2009",
+   "note": "Google's only published figure, from 2009."
+  },
+  "gridOutageMinutes": {
+   "value": 11.7,
+   "unit": "minutes/yr",
+   "status": "reference",
+   "source": "bnetza-saidi",
+   "asOf": "2024",
+   "note": "Average interruption per electricity customer in Germany (SAIDI)."
+  }
+ },
+ "sites": {
+  "vantage-fra21": {
+   "role": "baseline",
+   "name": "Vantage FRA21",
+   "operator": "Vantage Data Centers Germany GmbH",
+   "ownershipNote": "Press reports a sale of FRA21 and FRA22 to a large asset manager; Vantage remains the reporting operator in RZReg.",
+   "ownershipSource": "hochheimer-sale",
+   "location": {
+    "town": "Raunheim",
+    "postalCode": "65479",
+    "campus": "Frankfurt II (Airport Garden)",
+    "region": "Frankfurt Rhine-Main, next to Frankfurt Airport"
+   },
+   "opened": {
+    "value": "completed by 2022-11-03 (first building on the Frankfurt II campus)",
+    "status": "operator",
+    "source": "vantage-2022-11",
+    "asOf": "2022-11-03"
+   },
+   "facts": {
+    "storeys": {
+     "value": 4,
+     "unit": "",
+     "status": "operator",
+     "source": "vantage-2022-11",
+     "asOf": "2022-11-03"
+    },
+    "itCapacity": {
+     "value": 40000,
+     "unit": "kW",
+     "status": "operator",
+     "source": "vantage-2022-11",
+     "asOf": "2022-11-03",
+     "note": "'accounts for 40MW of the campus' projected 56MW of total IT capacity'. The register lists 1 kW for this field, clearly a placeholder."
+    },
+    "campusItCapacity": {
+     "value": 56000,
+     "unit": "kW",
+     "status": "operator",
+     "source": [
+      "vantage-2022-11",
+      "vantage-2022-07"
+     ],
+     "asOf": "2022",
+     "note": "Planned total for the Frankfurt II campus: FRA21 (40 MW) + FRA22 (16 MW)."
+    },
+    "campusSite": {
+     "value": 3,
+     "unit": "ha",
+     "status": "operator",
+     "source": "vantage-2022-11",
+     "asOf": "2022-11-03",
+     "note": "'seven acres (three hectares)'."
+    },
+    "floorAreaOperator": {
+     "value": 33000,
+     "unit": "m²",
+     "status": "operator",
+     "source": "vantage-2022-11",
+     "asOf": "2022-11-03",
+     "note": "'350,000 square feet (33,000 square meters)'."
+    },
+    "floorArea": {
+     "value": 39292,
+     "unit": "m²",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025",
+     "note": "Register 'surface area'. Differs from the operator's 33,000 m²; the two likely measure different things. Neither definition is stated."
+    },
+    "totalEnergy": {
+     "value": 135477339,
+     "unit": "kWh/yr",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025",
+     "note": "Largest total energy use of all 322 sites in the register."
+    },
+    "pue": {
+     "value": 1.25,
+     "unit": "",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wue": {
+     "value": 0.01,
+     "unit": "L/kWh IT",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "renewableShare": {
+     "value": 100,
+     "unit": "%",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025",
+     "note": "Renewable energy factor (REF): balance-sheet renewable electricity, not on-site generation."
+    },
+    "coolingEfficiencyRatio": {
+     "value": 7.6,
+     "unit": "",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025",
+     "note": "Heat removed per unit of cooling energy. Higher is better."
+    },
+    "wasteHeatReleased": {
+     "value": 118741579,
+     "unit": "kWh/yr",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wasteHeatReused": {
+     "value": 0,
+     "unit": "kWh/yr",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wasteHeatTemp": {
+     "value": 27,
+     "unit": "°C",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025",
+     "note": "Too cool to heat homes directly; would need heat pumps."
+    },
+    "coolingType": {
+     "value": "closed loop, no evaporation",
+     "unit": "",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "Stated by the authority for the sister building FRA22 on the same campus, replying to a public objection about water use. Applied to FRA21 by inference; consistent with the reported WUE of 0.01."
+    }
+   },
+   "derived": {
+    "itEnergy": {
+     "value": 108381871,
+     "unit": "kWh/yr",
+     "status": "derived",
+     "formula": "totalEnergy / pue",
+     "inputs": [
+      "totalEnergy",
+      "pue"
+     ]
+    },
+    "avgItLoad": {
+     "value": 12.37,
+     "unit": "MW",
+     "status": "derived",
+     "formula": "itEnergy / 8760 h",
+     "inputs": [
+      "itEnergy"
+     ]
+    },
+    "avgFacilityLoad": {
+     "value": 15.47,
+     "unit": "MW",
+     "status": "derived",
+     "formula": "totalEnergy / 8760 h",
+     "inputs": [
+      "totalEnergy"
+     ]
+    },
+    "utilisation": {
+     "value": 30.9,
+     "unit": "%",
+     "status": "derived",
+     "formula": "avgItLoad / itCapacity",
+     "inputs": [
+      "avgItLoad",
+      "itCapacity"
+     ],
+     "note": "Average IT load as a share of built IT capacity (operator figure)."
+    },
+    "waterPerYear": {
+     "value": 1084,
+     "unit": "m³/yr",
+     "status": "derived",
+     "formula": "wue × itEnergy / 1000",
+     "inputs": [
+      "wue",
+      "itEnergy"
+     ]
+    },
+    "waterPerDay": {
+     "value": 2.97,
+     "unit": "m³/day",
+     "status": "derived",
+     "formula": "waterPerYear / 365",
+     "inputs": [
+      "waterPerYear"
+     ]
+    },
+    "householdEquivalent": {
+     "value": 24,
+     "unit": "people",
+     "status": "derived",
+     "formula": "waterPerDay × 1000 / householdWaterPerPerson",
+     "inputs": [
+      "waterPerDay",
+      "references.householdWaterPerPerson"
+     ],
+     "note": "People whose average daily household water use equals the site's daily water use."
+    }
+   },
+   "backup": {
+    "generatorCount": {
+     "value": 28,
+     "unit": "units",
+     "status": "permitted",
+     "source": "permit-fra21",
+     "asOf": "2023-03-31",
+     "note": "Caterpillar CAT 3516E, in 7 groups of 4."
+    },
+    "generatorLocation": {
+     "value": "inside the building at the north-west outer wall: 14 on the 1st floor, 14 on the 2nd",
+     "status": "permitted",
+     "source": "permit-fra21",
+     "asOf": "2023-03-31",
+     "note": "'Die 28 dieselbetriebenen Notstrommotorenanlagen befinden sich an der nordwestlichen Außenwand im 1. und 2. Obergeschoss'."
+    },
+    "generatorFuelInputTotal": {
+     "value": 199.528,
+     "unit": "MW fuel",
+     "status": "permitted",
+     "source": "permit-fra21",
+     "asOf": "2023-03-31",
+     "note": "7.126 MW each."
+    },
+    "stackCount": {
+     "value": 7,
+     "unit": "stacks",
+     "status": "permitted",
+     "source": "permit-fra21",
+     "asOf": "2023-03-31",
+     "note": "Exhaust of each group of 4 bundled into one stack."
+    },
+    "stackHeight": {
+     "value": 38.2,
+     "unit": "m (minimum)",
+     "status": "permitted",
+     "source": "permit-fra21",
+     "asOf": "2023-03-31",
+     "note": "Lower than the TA Luft nomogram would require; allowed because the generators run only a few hours a year, shown by dispersion modelling (TÜV Hessen T0003152)."
+    },
+    "emergencyHoursTotal": {
+     "value": 2502,
+     "unit": "generator-hours/yr",
+     "status": "permitted",
+     "source": "permit-fra21",
+     "asOf": "2023-03-31",
+     "note": "Summed across all 28 generators."
+    },
+    "testHoursPerGenerator": {
+     "value": 14,
+     "unit": "h/yr",
+     "status": "permitted",
+     "source": "permit-fra21",
+     "asOf": "2023-03-31",
+     "note": "3 h idle test, 4 h annual building-load test, 4 h load-bank test, 3 h emission measurement; one generator at a time. 392 h/yr across all 28."
+    }
+   },
+   "noiseLimits": {
+    "status": "permitted",
+    "source": "permit-fra21",
+    "asOf": "2023-03-31",
+    "unit": "dB(A)",
+    "dayHours": "06–22",
+    "nightHours": "22–06",
+    "plantShare": {
+     "meaning": "Share of the legal limit the 28 generators alone may add at each point.",
+     "points": [
+      {
+       "id": "IO WA 01",
+       "address": "Dr.-Hermann-Ehlers-Str. 11",
+       "zone": "residential (WA)",
+       "day": 49.6,
+       "night": 34.6
+      },
+      {
+       "id": "IO WA 02",
+       "address": "Karlstraße 42",
+       "zone": "residential (WA)",
+       "day": 47.5,
+       "night": 32.5
+      },
+      {
+       "id": "IO WA 03",
+       "address": "Schillerstraße 21",
+       "zone": "residential (WA)",
+       "day": 48.2,
+       "night": 33.2
+      },
+      {
+       "id": "IO WA 04",
+       "address": "Theodor-Storm-Straße 8a",
+       "zone": "residential (WA)",
+       "day": 47.6,
+       "night": 32.6
+      },
+      {
+       "id": "IO WA 05",
+       "address": "Theodor-Storm-Straße 14",
+       "zone": "residential (WA)",
+       "day": 46.0,
+       "night": 31.0
+      },
+      {
+       "id": "IO WA 06",
+       "address": "Uhlandstraße 38a",
+       "zone": "residential (WA)",
+       "day": 45.8,
+       "night": 30.8
+      },
+      {
+       "id": "IO WA 07",
+       "address": "Uhlandstraße 42a",
+       "zone": "residential (WA)",
+       "day": 46.8,
+       "night": 31.8
+      },
+      {
+       "id": "IO 08–12",
+       "address": "Commercial area, B-Plan 61.23.32-2 'Resart-Ihm / BÜ Ost'",
+       "zone": "commercial",
+       "day": 59.0,
+       "night": 44.0
+      }
+     ]
+    },
+    "totalCap": {
+     "meaning": "Maximum from ALL installations together, roof coolers included.",
+     "points": [
+      {
+       "id": "IO WA 01–07",
+       "zone": "residential (WA)",
+       "day": 55,
+       "night": 40
+      },
+      {
+       "id": "IO 08–12",
+       "zone": "commercial",
+       "day": 65,
+       "night": 50
+      }
+     ]
+    },
+    "noiseReport": {
+     "value": "TÜV Hessen GmbH, schalltechnisches Gutachten Nr. T3509, 2021-03-25",
+     "status": "not-public",
+     "source": "permit-fra21",
+     "howToGet": "Part of the permit file at Regierungspräsidium Darmstadt; can be requested under HUIG."
+    }
+   }
+  },
+  "vantage-fra22": {
+   "role": "baseline-permit",
+   "name": "Vantage FRA22",
+   "operator": "VDC FRA22 GmbH",
+   "location": {
+    "town": "Raunheim",
+    "postalCode": "65479",
+    "address": "Alexander-von-Humboldt-Straße 4 A",
+    "campus": "Frankfurt II (Airport Garden)"
+   },
+   "registerNote": "Not listed separately in RZReg.",
+   "stage": {
+    "value": "ground broken 2022; generator permit 2024-02-16",
+    "status": "operator",
+    "source": [
+     "vantage-2022-07",
+     "permit-fra22"
+    ],
+    "asOf": "2024-02-16"
+   },
+   "facts": {
+    "itCapacity": {
+     "value": 16000,
+     "unit": "kW",
+     "status": "operator",
+     "source": "vantage-2022-07",
+     "asOf": "2022-07-25"
+    },
+    "floorAreaOperator": {
+     "value": 12000,
+     "unit": "m²",
+     "status": "operator",
+     "source": "vantage-2022-07",
+     "asOf": "2022-07-25",
+     "note": "'130,000 square feet (12,000 square meters)'."
+    },
+    "generatorCount": {
+     "value": 11,
+     "unit": "units",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "6 already approved under the 2022 building permit + 5 new."
+    },
+    "generatorModel": {
+     "value": "Caterpillar 3516E",
+     "unit": "",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16"
+    },
+    "generatorFuelInputEach": {
+     "value": 7.126,
+     "unit": "MW fuel",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "Feuerungswärmeleistung = heat in the fuel burned, not electrical output."
+    },
+    "generatorFuelInputTotal": {
+     "value": 78.39,
+     "unit": "MW fuel",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16"
+    },
+    "emergencyHoursMax": {
+     "value": 778,
+     "unit": "h/yr",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "Cap for emergency operation (at least two generators running in parallel). Peak-shaving or grid-contract use is not allowed."
+    },
+    "testHoursPerGenerator": {
+     "value": 21,
+     "unit": "h/yr",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "Solo test runs incl. emission measurements; 231 h/yr across all 11. Running all at once for testing ('black building test') is not allowed."
+    },
+    "dieselStorage": {
+     "value": 300,
+     "unit": "m³",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "3 underground tanks × 100 m³, plus 11 day tanks × 1.87 m³."
+    },
+    "adblueStorage": {
+     "value": 20,
+     "unit": "m³",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "2 × 10 m³ urea solution for the SCR NOx catalysts fitted to every generator."
+    },
+    "stackHeight": {
+     "value": 42,
+     "unit": "m",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "5 shared stacks (2 flues each) + 1 single stack."
+    },
+    "coolingWater": {
+     "value": 0,
+     "unit": "m³/yr",
+     "status": "permitted",
+     "source": "permit-fra22",
+     "asOf": "2024-02-16",
+     "note": "Authority's reply to a public objection: 'ausschließlich geschlossene Kühlkreiskreisläufe ohne Verdunstung und somit ohne Verbrauch von Wasser zu Kühlzwecken.' No industrial wastewater."
+    }
+   },
+   "noiseLimits": {
+    "status": "permitted",
+    "source": "permit-fra22",
+    "asOf": "2024-02-16",
+    "unit": "dB(A)",
+    "dayHours": "06–22",
+    "nightHours": "22–06",
+    "plantShare": {
+     "meaning": "Immissionsrichtwertanteile: the share of the legal noise limit that this generator plant alone may add at each point. Not a measurement.",
+     "points": [
+      {
+       "id": "IO WA 01",
+       "address": "Dr.-Hermann-Ehlers-Str. 11",
+       "zone": "residential (WA)",
+       "day": 43.0,
+       "night": 28.0
+      },
+      {
+       "id": "IO WA 02",
+       "address": "Karlstraße 42",
+       "zone": "residential (WA)",
+       "day": 43.6,
+       "night": 28.6
+      },
+      {
+       "id": "IO WA 03",
+       "address": "Schillerstraße 21",
+       "zone": "residential (WA)",
+       "day": 48.4,
+       "night": 33.4
+      },
+      {
+       "id": "IO WA 04",
+       "address": "Theodor-Storm-Straße 8a",
+       "zone": "residential (WA)",
+       "day": 50.1,
+       "night": 35.1
+      },
+      {
+       "id": "IO WA 05",
+       "address": "Theodor-Storm-Straße 14",
+       "zone": "residential (WA)",
+       "day": 48.9,
+       "night": 33.9
+      },
+      {
+       "id": "IO WA 06",
+       "address": "Uhlandstraße 38a",
+       "zone": "residential (WA)",
+       "day": 48.7,
+       "night": 33.7
+      },
+      {
+       "id": "IO WA 07",
+       "address": "Uhlandstraße 42a",
+       "zone": "residential (WA)",
+       "day": 49.5,
+       "night": 34.5
+      },
+      {
+       "id": "IO 08–12",
+       "address": "Commercial area, B-Plan 61.23.32-2 'Resart-Ihm / BÜ Ost'",
+       "zone": "commercial",
+       "day": 59.0,
+       "night": 44.0,
+       "note": "Authority cut these by 6 dB(A) from the noise report's values because existing background noise was not assessed."
+      }
+     ]
+    },
+    "totalCap": {
+     "meaning": "Immissionsrichtwerte als Gesamtbelastung: the maximum from ALL installations together at each point. This covers roof coolers, transformers and the generators combined.",
+     "points": [
+      {
+       "id": "IO WA 01–07",
+       "zone": "residential (WA)",
+       "day": 55,
+       "night": 40
+      },
+      {
+       "id": "IO 08–12",
+       "zone": "commercial",
+       "day": 65,
+       "night": 50
+      }
+     ]
+    },
+    "peaks": "Short noise peaks may not exceed the limit by more than 30 dB(A) by day or 20 dB(A) by night.",
+    "tonality": "Plant noise must not be impulsive, tonal or information-carrying, and must not cause harmful low-frequency noise.",
+    "noiseReport": {
+     "value": "TÜV Hessen GmbH, schalltechnisches Gutachten Nr. T3947, 2021-08-05; stated accuracy ±3 dB(A), treated by the authority as 0/−3 dB(A) (upper estimate)",
+     "status": "not-public",
+     "source": "permit-fra22",
+     "howToGet": "Part of the permit file at Regierungspräsidium Darmstadt; can be requested under the Hessian environmental-information law (HUIG)."
+    },
+    "rooftopCoolersNote": "The permit states the coolers on the hall roofs serve only the datacenter and are not part of the generator permit. Their own sound levels are not published; the total cap above is the binding limit they fall under."
+   }
+  },
+  "vantage-fra32": {
+   "role": "new-build",
+   "name": "Vantage FRA32",
+   "operator": "VDC FRA32 GmbH",
+   "location": {
+    "town": "Raunheim",
+    "postalCode": "65479",
+    "address": "Frankfurter Straße 62",
+    "note": "Separate site in Raunheim, not on the Frankfurt II campus. Plot bounded by the B43 road (north-west) and the town cemetery (west)."
+   },
+   "stage": {
+    "value": "building permit 2024-09-16; generator permit 2026-03-23; not yet in RZReg",
+    "status": "permitted",
+    "source": "permit-fra32",
+    "asOf": "2026-03-23"
+   },
+   "planning": {
+    "plan": {
+     "value": "Bebauungsplan 61.23.44 'Am Pfarrgarten', 1. Änderung",
+     "status": "permitted",
+     "source": [
+      "permit-fra32",
+      "raunheim-2023-548"
+     ]
+    },
+    "plotArea": {
+     "value": 1.6,
+     "unit": "ha",
+     "status": "permitted",
+     "source": "raunheim-2023-548",
+     "asOf": "2023-09-11"
+    },
+    "zoning": {
+     "value": "GEe, restricted commercial: only businesses that do not significantly disturb housing (mixed-area level)",
+     "status": "permitted",
+     "source": "raunheim-2023-548",
+     "asOf": "2023-09-11",
+     "note": "Changed from an 'urban area' planned for senior housing."
+    },
+    "maxHeight": {
+     "value": 13.5,
+     "unit": "m",
+     "status": "permitted",
+     "source": "raunheim-2023-548",
+     "asOf": "2023-09-11"
+    },
+    "siteCoverage": {
+     "value": 0.8,
+     "unit": "GRZ",
+     "status": "permitted",
+     "source": "raunheim-2023-548",
+     "asOf": "2023-09-11",
+     "note": "Up to 80% of the plot may be built over."
+    },
+    "greenBerm": {
+     "value": "green berm required on the east side of the plot",
+     "status": "permitted",
+     "source": "raunheim-2023-548",
+     "asOf": "2023-09-11"
+    },
+    "procedure": {
+     "value": "accelerated procedure (§ 13a BauGB): no environmental report",
+     "status": "permitted",
+     "source": "raunheim-2023-548",
+     "asOf": "2023-09-11"
+    }
+   },
+   "facts": {
+    "generatorCount": {
+     "value": 20,
+     "unit": "units",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23",
+     "note": "6 under the 2024 building permit + 14 new."
+    },
+    "generatorModel": {
+     "value": "Kohler KD83V16A-5CGS",
+     "unit": "",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23"
+    },
+    "generatorFuelInputEach": {
+     "value": 7.69,
+     "unit": "MW fuel",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23"
+    },
+    "generatorFuelInputTotal": {
+     "value": 154,
+     "unit": "MW fuel",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23"
+    },
+    "emergencyHoursMax": {
+     "value": 695,
+     "unit": "h/yr",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23"
+    },
+    "testHoursPerGenerator": {
+     "value": 27,
+     "unit": "h/yr",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23",
+     "note": "12 × 1 h monthly idle test, 2 h idle, 2 h load bank, 1 h building load, 5 h transformer maintenance, 5 h emission measurement. 540 h/yr across all 20. No black-building test."
+    },
+    "dieselStorage": {
+     "value": 500,
+     "unit": "m³",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23",
+     "note": "5 underground double-walled tanks × 100 m³."
+    },
+    "stackHeight": {
+     "value": 32,
+     "unit": "m",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23",
+     "note": "20 single stacks."
+    },
+    "noiseBarrier": {
+     "value": "noise barrier wall required, as specified in the noise report",
+     "status": "permitted",
+     "source": "permit-fra32",
+     "asOf": "2026-03-23"
+    }
+   },
+   "noiseLimits": {
+    "status": "permitted",
+    "source": "permit-fra32",
+    "asOf": "2026-03-23",
+    "unit": "dB(A)",
+    "dayHours": "06–22",
+    "nightHours": "22–06",
+    "plantShare": {
+     "meaning": "Share of the legal limit this generator plant alone may add, by type of area.",
+     "points": [
+      {
+       "zone": "residential (WA)",
+       "example": "Frankfurter Straße 38c",
+       "day": 45,
+       "night": 31
+      },
+      {
+       "zone": "cemetery",
+       "example": "Friedhof der Stadt Raunheim",
+       "day": 45,
+       "night": 45
+      },
+      {
+       "zone": "mixed (MI)",
+       "example": "Kelsterbacher Straße 2",
+       "day": 50,
+       "night": 35
+      },
+      {
+       "zone": "urban (MU)",
+       "example": "Frankfurter Straße 67, 68, 70a, 71, 79, 82",
+       "day": 57,
+       "night": 37
+      },
+      {
+       "zone": "commercial (GE)",
+       "example": "Frankfurter Straße 41–65, 54",
+       "day": 55,
+       "night": 40
+      }
+     ]
+    },
+    "totalCap": {
+     "meaning": "Maximum from ALL installations together, roof coolers included.",
+     "points": [
+      {
+       "zone": "residential (WA)",
+       "day": 55,
+       "night": 40
+      },
+      {
+       "zone": "cemetery",
+       "day": 55,
+       "night": 55
+      },
+      {
+       "zone": "mixed (MI)",
+       "day": 60,
+       "night": 45
+      },
+      {
+       "zone": "urban (MU)",
+       "day": 63,
+       "night": 45
+      },
+      {
+       "zone": "commercial (GE)",
+       "day": 65,
+       "night": 50
+      }
+     ]
+    },
+    "noiseReport": {
+     "value": "BEKON Lärmschutz & Akustik GmbH, Gutachten Nr. LA23-087-G01-E01-01, 2024-03-22, supplement 2025-04-23 (commissioning: LA23-087-K03-01)",
+     "status": "not-public",
+     "source": "permit-fra32",
+     "howToGet": "Part of the permit file at Regierungspräsidium Darmstadt; can be requested under HUIG. Its source sound-power levels and calculated levels are binding under the permit."
+    },
+    "rooftopCoolersNote": "Same as FRA22: roof coolers are outside the generator permit; the total cap is the binding limit."
+   },
+   "notYetPublic": [
+    {
+     "what": "IT capacity",
+     "why": "Operator has not announced it; site not yet in RZReg."
+    },
+    {
+     "what": "Cooling type",
+     "why": "Not stated in the generator permit."
+    },
+    {
+     "what": "Measured PUE, WUE, heat reuse",
+     "why": "First register report is due by 31 March of the year after a full operating year."
+    }
+   ]
+  },
+  "tsystems-biere-2": {
+   "role": "contrast",
+   "name": "T-Systems Biere Cluster 2",
+   "operator": "T-Systems International GmbH",
+   "location": {
+    "town": "Biere (Bördeland)",
+    "postalCode": "39221",
+    "region": "near Magdeburg, Saxony-Anhalt"
+   },
+   "opened": {
+    "value": "campus opened 2014; second building (Biere II) added 2018",
+    "status": "press",
+    "source": "golem-biere"
+   },
+   "campusCheck": {
+    "value": "Register 'Biere Cluster 1' (7,200 kW) + 'Biere Cluster 2' (10,800 kW) = 18,000 kW, exactly the 18 MW IT capacity the operator publishes for the Biere site.",
+    "status": "derived",
+    "formula": "itCapacity(Cluster 1) + itCapacity(Cluster 2)",
+    "inputs": [
+     "rzreg",
+     "tcloud-biere"
+    ],
+    "note": "So the two register entries together are the whole Biere campus. Which building each 'Cluster' corresponds to is not stated anywhere."
+   },
+   "facts": {
+    "floorArea": {
+     "value": 22827,
+     "unit": "m²",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "itCapacity": {
+     "value": 10800,
+     "unit": "kW",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "totalEnergy": {
+     "value": 63099393,
+     "unit": "kWh/yr",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "pue": {
+     "value": 1.23,
+     "unit": "",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wue": {
+     "value": 1.03,
+     "unit": "L/kWh IT",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "renewableShare": {
+     "value": 100,
+     "unit": "%",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "coolingEfficiencyRatio": {
+     "value": 11.66,
+     "unit": "",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wasteHeatReleased": {
+     "value": 56134873,
+     "unit": "kWh/yr",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wasteHeatReused": {
+     "value": 0,
+     "unit": "kWh/yr",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wasteHeatTemp": {
+     "value": 24,
+     "unit": "°C",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "coolingType": {
+     "value": "mainly evaporative; energy-intensive mechanical cooling avoided on ~300 days/yr",
+     "unit": "",
+     "status": "operator",
+     "source": "kfw-biere",
+     "note": "Said by a T-Systems manager in a KfW interview."
+    },
+    "campusItCapacity": {
+     "value": 18000,
+     "unit": "kW",
+     "status": "operator",
+     "source": "tcloud-biere",
+     "asOf": "2023-04-06"
+    },
+    "campusPue": {
+     "value": 1.28,
+     "unit": "",
+     "status": "operator",
+     "source": "tcloud-biere",
+     "asOf": "2023-04-06"
+    },
+    "campusItRooms": {
+     "value": 20,
+     "unit": "rooms",
+     "status": "operator",
+     "source": "tcloud-biere",
+     "asOf": "2023-04-06"
+    },
+    "campusServerSpace": {
+     "value": 100000,
+     "unit": "servers",
+     "status": "operator",
+     "source": "tcloud-biere",
+     "asOf": "2023-04-06",
+     "note": "Space for, not installed."
+    },
+    "backupAutonomy": {
+     "value": 110,
+     "unit": "h",
+     "status": "operator",
+     "source": "tcloud-biere",
+     "asOf": "2023-04-06",
+     "note": "Can run on emergency power for at least 110 hours in a full outage."
+    }
+   },
+   "derived": {
+    "itEnergy": {
+     "value": 51300320,
+     "unit": "kWh/yr",
+     "status": "derived",
+     "formula": "totalEnergy / pue",
+     "inputs": [
+      "totalEnergy",
+      "pue"
+     ]
+    },
+    "avgItLoad": {
+     "value": 5.86,
+     "unit": "MW",
+     "status": "derived",
+     "formula": "itEnergy / 8760 h",
+     "inputs": [
+      "itEnergy"
+     ]
+    },
+    "utilisation": {
+     "value": 54,
+     "unit": "%",
+     "status": "derived",
+     "formula": "avgItLoad / itCapacity",
+     "inputs": [
+      "avgItLoad",
+      "itCapacity"
+     ]
+    },
+    "waterPerYear": {
+     "value": 52839,
+     "unit": "m³/yr",
+     "status": "derived",
+     "formula": "wue × itEnergy / 1000",
+     "inputs": [
+      "wue",
+      "itEnergy"
+     ]
+    },
+    "waterPerDay": {
+     "value": 144.8,
+     "unit": "m³/day",
+     "status": "derived",
+     "formula": "waterPerYear / 365",
+     "inputs": [
+      "waterPerYear"
+     ]
+    },
+    "householdEquivalent": {
+     "value": 1149,
+     "unit": "people",
+     "status": "derived",
+     "formula": "waterPerDay × 1000 / householdWaterPerPerson",
+     "inputs": [
+      "waterPerDay",
+      "references.householdWaterPerPerson"
+     ]
+    }
+   }
+  },
+  "yondr-bischofsheim": {
+   "role": "side-note",
+   "name": "Yondr Bischofsheim",
+   "operator": "Yondr Germany GmbH",
+   "location": {
+    "town": "Bischofsheim",
+    "postalCode": "65474"
+   },
+   "opened": {
+    "value": "2025-07-10 (fully operational; earlier phases handed over before)",
+    "status": "press",
+    "source": "yondr-opening"
+   },
+   "why": "Shows what a freshly opened, mostly empty site looks like in the data: big capacity, little load, high PUE.",
+   "facts": {
+    "itCapacity": {
+     "value": 40800,
+     "unit": "kW",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "totalEnergy": {
+     "value": 28192680,
+     "unit": "kWh/yr",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "pue": {
+     "value": 2.87,
+     "unit": "",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wue": {
+     "value": 0.26,
+     "unit": "L/kWh IT",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    },
+    "wasteHeatTemp": {
+     "value": 37,
+     "unit": "°C",
+     "status": "reported",
+     "source": "rzreg",
+     "asOf": "2025"
+    }
+   },
+   "derived": {
+    "itEnergy": {
+     "value": 9823233,
+     "unit": "kWh/yr",
+     "status": "derived",
+     "formula": "totalEnergy / pue",
+     "inputs": [
+      "totalEnergy",
+      "pue"
+     ]
+    },
+    "avgItLoad": {
+     "value": 1.12,
+     "unit": "MW",
+     "status": "derived",
+     "formula": "itEnergy / 8760 h",
+     "inputs": [
+      "itEnergy"
+     ]
+    },
+    "utilisation": {
+     "value": 2.7,
+     "unit": "%",
+     "status": "derived",
+     "formula": "avgItLoad / itCapacity",
+     "inputs": [
+      "avgItLoad",
+      "itCapacity"
+     ],
+     "note": "Very low, consistent with ramp-up during 2025."
+    }
+   }
+  }
+ },
+ "regulation": {
+  "inForce": {
+   "existing-pue-2027": {
+    "value": 1.5,
+    "unit": "PUE max",
+    "appliesTo": "datacenters operating before 2026-07-01, annual average, from 2027-07-01",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "existing-pue-2030": {
+    "value": 1.3,
+    "unit": "PUE max",
+    "appliesTo": "same, from 2030-07-01",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "new-pue": {
+    "value": 1.2,
+    "unit": "PUE max",
+    "appliesTo": "datacenters starting operation from 2026-07-01; reached within 2 years, annual average",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "new-erf-2026": {
+    "value": 10,
+    "unit": "% reused energy min",
+    "appliesTo": "starting operation from 2026-07-01",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "new-erf-2027": {
+    "value": 15,
+    "unit": "% reused energy min (planned)",
+    "appliesTo": "starting operation from 2027-07-01",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "new-erf-2028": {
+    "value": 20,
+    "unit": "% reused energy min (planned)",
+    "appliesTo": "starting operation from 2028-07-01",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "erf-exemptions": {
+    "value": "not required if: later events beyond the operator's control; a heat-reuse agreement with a nearby municipality/heat-network operator to be met within 10 years; or a nearby heat network declines an at-cost offer within 6 months",
+    "unit": "",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "renewable-2024": {
+    "value": 50,
+    "unit": "% renewable electricity (balance)",
+    "appliesTo": "from 2024-01-01",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "renewable-2027": {
+    "value": 100,
+    "unit": "% renewable electricity (balance)",
+    "appliesTo": "from 2027-01-01",
+    "status": "regulation",
+    "source": "enefg-statute"
+   },
+   "reporting": {
+    "value": "annual report by 31 March for the previous year",
+    "unit": "",
+    "status": "regulation",
+    "source": "rzreg"
+   }
+  },
+  "pendingAmendment": {
+   "bill": {
+    "value": "Drucksache 21/8027, government bill dated 2026-09-16; first reading 2026-09-24; not passed as of 2026-11-08 (no record of a 2nd/3rd reading found)",
+    "status": "draft-law",
+    "source": [
+     "enefg-bill-2026",
+     "bundestag-first-reading"
+    ]
+   },
+   "existing-pue-2027": {
+    "value": 1.6,
+    "unit": "PUE max",
+    "replaces": 1.5,
+    "status": "draft-law",
+    "source": "enefg-bill-2026"
+   },
+   "existing-pue-2030": {
+    "value": 1.4,
+    "unit": "PUE max",
+    "replaces": 1.3,
+    "status": "draft-law",
+    "source": "enefg-bill-2026"
+   },
+   "new-pue": {
+    "value": 1.2,
+    "unit": "PUE max",
+    "note": "Unchanged value, but the deadline to reach it goes from 2 to 4 years after start of operation. (Some commentary says 1.3; the bill text says 1.2.)",
+    "status": "draft-law",
+    "source": "enefg-bill-2026"
+   },
+   "heat-upgrade-excluded": {
+    "value": "electricity used only to upgrade waste heat (e.g. heat pumps) would not count towards PUE",
+    "status": "draft-law",
+    "source": "enefg-bill-2026"
+   },
+   "erf-changes": {
+    "value": "internal heat use (own offices) counts towards ERF; ERF may be undercut if connected to a heat network; new exemption where no technically and economically reasonable heat-network connection exists (cost-benefit analysis)",
+    "status": "draft-law",
+    "source": "enefg-bill-2026"
+   },
+   "renewable-100": {
+    "value": "2030-01-01",
+    "replaces": "2027-01-01",
+    "unit": "date for 100% renewable electricity",
+    "status": "draft-law",
+    "source": "enefg-bill-2026"
+   }
+  }
+ },
+ "scenarios": {
+  "cooling": [
+   {
+    "id": "evaporative",
+    "label": "Evaporative cooling",
+    "exampleSite": "tsystems-biere-2",
+    "wue": {
+     "value": 1.03,
+     "status": "reported",
+     "source": "rzreg"
+    },
+    "pue": {
+     "value": 1.23,
+     "status": "reported",
+     "source": "rzreg"
+    },
+    "tradeoff": "Uses water to save electricity."
+   },
+   {
+    "id": "closed-loop",
+    "label": "Closed loop, no evaporation",
+    "exampleSite": "vantage-fra21",
+    "wue": {
+     "value": 0.01,
+     "status": "reported",
+     "source": "rzreg"
+    },
+    "pue": {
+     "value": 1.25,
+     "status": "reported",
+     "source": "rzreg"
+    },
+    "tradeoff": "Almost no water for cooling."
+   },
+   {
+    "id": "liquid-45c",
+    "label": "Direct liquid cooling at 45 °C (NVIDIA Rubin reference design)",
+    "exampleSite": null,
+    "claim": "Chiller-less operation with dry coolers in favourable climates; facility cooling water from ~2.6 million US gallons (~9,800 m³) per MW per year to near zero.",
+    "status": "vendor-claim",
+    "source": "nvidia-45c",
+    "asOf": "2026-06",
+    "caveats": "Climate-dependent (hot, humid regions still need evaporation). Operators may not run at 45 °C in practice.",
+    "caveatSource": "nvidia-critique"
+   }
+  ]
+ },
+ "openItems": [
+  {
+   "what": "Exact sound levels of the roof coolers at Raunheim",
+   "status": "not-public",
+   "detail": "In the noise reports TÜV Hessen T3947 (FRA22) and BEKON LA23-087 (FRA32). Not published; requestable from Regierungspräsidium Darmstadt under HUIG. The binding caps are already in this file."
+  },
+  {
+   "what": "FRA32 IT capacity, cooling type, measured PUE/WUE",
+   "status": "not-public",
+   "detail": "Not yet announced or reported; site still being built/commissioned."
+  },
+  {
+   "what": "Whether the 2026 EnEfG amendment passes",
+   "status": "draft-law",
+   "detail": "First reading 2026-09-24. Re-check Bundestag Drucksache 21/8027 status."
+  },
+  {
+   "what": "Which Biere building each register 'Cluster' is",
+   "status": "not-public",
+   "detail": "Not stated by the operator or the register. Together they match the 18 MW campus total."
+  }
+ ],
+ "jobs": {
+  "siteData": {
+   "value": null,
+   "status": "not-public",
+   "note": "Vantage has not published construction or staff numbers for FRA21. Its 2022 release mentions an office for up to 30 employees in Raunheim.",
+   "source": "vantage-2022-11"
+  },
+  "constructionPerMW": {
+   "value": 16,
+   "unit": "workers per MW",
+   "status": "study",
+   "source": "bmwk-2025",
+   "asOf": "2025",
+   "note": "Ministry-commissioned study: 'Für größere Gebäude kann mit im Schnitt 16 Arbeitskräften pro MW gerechnet werden.' Employed 3 to 10 years depending on phasing."
+  },
+  "operationPerMWLow": {
+   "value": 0.3,
+   "unit": "jobs per MW",
+   "status": "study",
+   "source": "bmwk-2025",
+   "asOf": "2025",
+   "note": "For buildings of 20 MW or more: 'maximal mit 0,3 bis 0,8 Arbeitsplätzen pro MW' (mainly security and maintenance)."
+  },
+  "operationPerMWHigh": {
+   "value": 0.8,
+   "unit": "jobs per MW",
+   "status": "study",
+   "source": "bmwk-2025",
+   "asOf": "2025"
+  },
+  "itServicesPerMWLow": {
+   "value": 35,
+   "unit": "jobs per MW",
+   "status": "study",
+   "source": "bmwk-2025",
+   "asOf": "2025",
+   "note": "IT service companies using the capacity: 35 to 140 staff per MW of IT services. Not on site; anywhere in the world."
+  },
+  "itServicesPerMWHigh": {
+   "value": 140,
+   "unit": "jobs per MW",
+   "status": "study",
+   "source": "bmwk-2025",
+   "asOf": "2025"
+  },
+  "regionDirect": {
+   "value": 2900,
+   "unit": "jobs",
+   "status": "study",
+   "source": "hessenschau-study",
+   "asOf": "2025",
+   "note": "Frankfurt-Rhine-Main: 'Rund 2.900 Beschäftigte … gerade einmal 0,1 Prozent aller Arbeitsplätze'; about €1.3 bn a year of regional GDP and €405 m tax revenue."
+  },
+  "itInfraPerMWLow": {
+   "value": 3,
+   "unit": "jobs per MW",
+   "status": "study",
+   "source": "bmwk-2025",
+   "asOf": "2025",
+   "note": "IT infrastructure operators who run the equipment inside datacenter buildings: 'mit 3 bis 25 Mitarbeitern pro Megawatt'. Not necessarily on site."
+  },
+  "itInfraPerMWHigh": {
+   "value": 25,
+   "unit": "jobs per MW",
+   "status": "study",
+   "source": "bmwk-2025",
+   "asOf": "2025"
+  },
+  "regionGDP": {
+   "value": 1300000000.0,
+   "unit": "EUR/yr",
+   "status": "study",
+   "source": "hessenschau-study",
+   "asOf": "2025",
+   "note": "'Die Rechenzentren tragen rund 1,3 Milliarden Euro jährlich zum BIP der Region Frankfurt-Rhein-Main bei.'"
+  },
+  "regionTax": {
+   "value": 405000000.0,
+   "unit": "EUR",
+   "status": "study",
+   "source": "hessenschau-study",
+   "asOf": "2025",
+   "note": "'Insgesamt gehen rund 405 Millionen Euro an Steuereinnahmen auf die Rechenzentrumsbranche zurück.'"
+  }
+ },
+ "claims": [
+  {
+   "id": "water",
+   "side": "against",
+   "claim": "Datacenters drain local water.",
+   "verdict": "depends",
+   "why": "It depends on the cooling method: sealed-loop sites like FRA21 use almost no water, evaporative sites use a lot, and national figures are incomplete.",
+   "said": {
+    "text": "Federal Environment Minister Carsten Schneider: basic water needs 'dürfen nicht mit Großverbrauchern wie Rechenzentren konkurrieren'.",
+    "status": "press",
+    "source": "correctiv-2026"
+   },
+   "evidence": [
+    {
+     "text": "FRA21 reported a WUE of 0.01 L/kWh for 2025, about 3 m³ a day.",
+     "status": "reported",
+     "source": "rzreg"
+    },
+    {
+     "text": "T-Systems Biere (evaporative) reported 1.03 L/kWh, about 145 m³ a day.",
+     "status": "reported",
+     "source": "rzreg"
+    },
+    {
+     "text": "The federal Digital Ministry: 'Zum Wasserverbrauch durch Rechenzentren in Deutschland liegen nur begrenzt Zahlen vor.'",
+     "status": "press",
+     "source": "netzpolitik-water"
+    }
+   ]
+  },
+  {
+   "id": "jobs",
+   "side": "against",
+   "claim": "They create few, mostly temporary jobs.",
+   "verdict": "supported",
+   "why": "True for jobs on site: building needs hundreds of workers, running a large site needs a few dozen. Jobs at the companies using the computing are elsewhere.",
+   "evidence": [
+    {
+     "text": "Large sites (20 MW+) need at most 0.3–0.8 permanent jobs per MW; construction about 16 workers per MW.",
+     "status": "study",
+     "source": "bmwk-2025"
+    },
+    {
+     "text": "About 2,900 people work in datacenters across Frankfurt-Rhine-Main: 0.1% of all jobs in the region.",
+     "status": "study",
+     "source": "hessenschau-study"
+    }
+   ]
+  },
+  {
+   "id": "grid",
+   "side": "against",
+   "claim": "They strain the power grid.",
+   "verdict": "supported",
+   "why": "In Rhine-Main the local grid operator has no capacity left for new datacenters until the 2030s.",
+   "evidence": [
+    {
+     "text": "Grid operator Syna is booked out for datacenters; about 800 MW of new requests in one half-year, roughly Frankfurt's peak load; new applicants should plan for the early or mid-2030s.",
+     "status": "press",
+     "source": "zfk-syna"
+    }
+   ]
+  },
+  {
+   "id": "prices",
+   "side": "against",
+   "claim": "They drive up household electricity prices.",
+   "verdict": "no-data",
+   "why": "No German agency study on this was found. Most of this argument comes from the US debate.",
+   "evidence": []
+  },
+  {
+   "id": "renewable",
+   "side": "for",
+   "claim": "They run on 100% renewable electricity.",
+   "verdict": "depends",
+   "why": "True on paper, through yearly contracts and certificates. Nobody shows renewable power matched hour by hour.",
+   "evidence": [
+    {
+     "text": "FRA21 reports 100% renewable electricity on an annual balance.",
+     "status": "reported",
+     "source": "rzreg"
+    },
+    {
+     "text": "The Öko-Institut recommends 'Deckung des Strombedarfs durch zeitgleich erzeugten Ökostrom' as a minimum standard.",
+     "status": "study",
+     "source": "oeko-institut-2025"
+    },
+    {
+     "text": "A 2026 bill would move the legal 100% renewable deadline from 2027 to 2030.",
+     "status": "draft-law",
+     "source": "enefg-bill-2026"
+    }
+   ]
+  },
+  {
+   "id": "heat",
+   "side": "for",
+   "claim": "Their waste heat could heat whole towns.",
+   "verdict": "not-supported",
+   "why": "The heat is lukewarm and needs heat pumps and heat networks. Today most of it is not used.",
+   "evidence": [
+    {
+     "text": "FRA21 released 118.7 GWh of heat at 27 °C in 2025 and reused none.",
+     "status": "reported",
+     "source": "rzreg"
+    },
+    {
+     "text": "Industry body Bitkom: 'Viele Rechenzentren würden ihre Abwärme sogar kostenlos abgeben', but there are too few buyers.",
+     "status": "study",
+     "source": "bitkom-2024"
+    },
+    {
+     "text": "New sites from July 2026 must reuse at least 10%.",
+     "status": "regulation",
+     "source": "enefg-statute"
+    }
+   ]
+  },
+  {
+   "id": "ai",
+   "side": "against",
+   "claim": "AI will make datacenter energy use explode.",
+   "verdict": "depends",
+   "why": "Strong growth is well documented, but forecasts vary widely and datacenters stay a small share of total electricity.",
+   "evidence": [
+    {
+     "text": "Datacenters used around 1.5% of the world's electricity in 2024 (415 TWh), projected around 945 TWh by 2030, with large uncertainties.",
+     "status": "study",
+     "source": "iea-energy-ai"
+    },
+    {
+     "text": "German datacenters: about 21.3 TWh in 2025, against 526 TWh total German consumption.",
+     "status": "study",
+     "source": "bitkom-2025"
+    }
+   ]
+  },
+  {
+   "id": "economy",
+   "side": "for",
+   "claim": "The economy needs them.",
+   "verdict": "depends",
+   "why": "They are core infrastructure for the region, but their direct share of the economy is small.",
+   "evidence": [
+    {
+     "text": "Datacenters add about €1.3 bn a year to Frankfurt-Rhine-Main's GDP (about 0.5%) and about €405 m in taxes.",
+     "status": "study",
+     "source": "hessenschau-study"
+    },
+    {
+     "text": "Frankfurt is home to DE-CIX, described by its operator as Europe's largest data hub.",
+     "status": "operator",
+     "source": "decix-2025"
+    }
+   ]
+  },
+  {
+   "id": "diesel",
+   "side": "against",
+   "claim": "Their diesel generators pollute the air.",
+   "verdict": "no-data",
+   "why": "No measured air-quality impact is published. Running hours are capped by law and grid outages are rare.",
+   "evidence": [
+    {
+     "text": "FRA21's 28 generators may run at most 2,502 generator-hours a year in emergencies, plus 14 test hours each.",
+     "status": "permitted",
+     "source": "permit-fra21"
+    },
+    {
+     "text": "The average German electricity customer had 11.7 minutes of outage in 2024.",
+     "status": "reference",
+     "source": "bnetza-saidi"
+    }
+   ]
+  },
+  {
+   "id": "noise",
+   "side": "against",
+   "claim": "Noise ruins the neighbourhood.",
+   "verdict": "no-data",
+   "why": "Limits are set by permit, but no noise measurements or complaint records for Raunheim are public.",
+   "evidence": [
+    {
+     "text": "At the nearest homes, all equipment together may not exceed 40 dB(A) at night.",
+     "status": "permitted",
+     "source": "permit-fra21"
+    },
+    {
+     "text": "The noise report behind the permit (TÜV Hessen T3509) is not public.",
+     "status": "not-public",
+     "source": "permit-fra21"
+    }
+   ]
+  }
+ ],
+ "uses": {
+  "operatorCustomers": {
+   "value": "top cloud providers, hyperscalers and leading technology companies",
+   "status": "operator",
+   "source": "vantage-about",
+   "note": "Vantage: 'Delivering data centers for top cloud providers, hyperscalers and leading technology companies'."
+  },
+  "fra21Customers": {
+   "value": null,
+   "status": "not-public",
+   "source": "vantage-2022-11",
+   "note": "No customer of FRA21 or the Frankfurt II campus is publicly named."
+  },
+  "germanyCloudShare": {
+   "value": 49,
+   "unit": "% of German datacenter capacity",
+   "status": "study",
+   "source": "bitkom-2025-report",
+   "asOf": "2025",
+   "note": "'Damit entfallen aktuell 49 % der deutschen RZ-Kapazitäten auf Cloud-Infrastrukturen.' Industry-funded."
+  },
+  "germanyAIShareNow": {
+   "value": 15,
+   "unit": "% of capacity (AI datacenters)",
+   "status": "study",
+   "source": "bitkom-2025-report",
+   "asOf": "2025",
+   "note": "'Der Anteil von KI-RZ dürfte bis 2030 von derzeit etwa 15 % auf rund 40 % ansteigen.'"
+  },
+  "germanyAIShare2030": {
+   "value": 40,
+   "unit": "% of capacity by 2030 (forecast)",
+   "status": "study",
+   "source": "bitkom-2025-report",
+   "asOf": "2025"
+  },
+  "frankfurtCapacity": {
+   "value": 1100,
+   "unit": "MW, more than a third of Germany",
+   "status": "study",
+   "source": "bitkom-2025-report",
+   "asOf": "2025",
+   "note": "'der Großraum Frankfurt am Main stellt mit einer installierten Kapazität von über 1.100 MW den größten RZ-Standort Deutschlands dar'."
+  },
+  "decixPeak": {
+   "value": 18.73,
+   "unit": "Tbit/s peak (9 Dec 2025)",
+   "status": "operator",
+   "source": "decix-2026-01",
+   "asOf": "2025-12-09"
+  },
+  "decixNetworks": {
+   "value": 1100,
+   "unit": "networks connected (almost)",
+   "status": "operator",
+   "source": "decix-2026-01",
+   "asOf": "2026-01"
+  },
+  "decixVolume": {
+   "value": 48,
+   "unit": "exabytes in 2025",
+   "status": "operator",
+   "source": "decix-2026-01",
+   "asOf": "2025"
+  },
+  "proximityMatters": {
+   "value": 12.1,
+   "unit": "% of firms in the region",
+   "status": "study",
+   "source": "iw-consult-2025",
+   "asOf": "2025",
+   "note": "'Ein kleiner Anteil der befragten Unternehmen (12,1 %) bewertet die räumliche Nähe zu Rechenzentren selbst als entscheidenden oder wichtigen Standortvorteil.' Survey of 321 firms."
+  },
+  "cloudRegions": {
+   "value": [
+    {
+     "provider": "Amazon Web Services",
+     "region": "eu-central-1, Europe (Frankfurt)",
+     "source": "aws-regions"
+    },
+    {
+     "provider": "Google Cloud",
+     "region": "europe-west3, Frankfurt",
+     "source": "gcp-regions"
+    },
+    {
+     "provider": "Microsoft Azure",
+     "region": "Germany West Central, Frankfurt",
+     "source": "azure-regions"
+    },
+    {
+     "provider": "Oracle Cloud",
+     "region": "eu-frankfurt-1",
+     "source": "oracle-regions"
+    },
+    {
+     "provider": "IBM Cloud",
+     "region": "eu-de, Frankfurt",
+     "source": "ibm-regions"
+    }
+   ],
+   "status": "operator",
+   "source": [
+    "aws-regions",
+    "gcp-regions",
+    "azure-regions",
+    "oracle-regions",
+    "ibm-regions"
+   ],
+   "note": "Public cloud regions located in Frankfurt. Which buildings they use is not public."
+  }
+ },
+ "cooling": {
+  "legacy": {
+   "pue2007": {
+    "value": 2.5,
+    "unit": "PUE, global average 2007",
+    "status": "study",
+    "source": "uptime-2023",
+    "asOf": "2007",
+    "note": "Uptime survey: 'dropped from 2.5 in 2007 to 1.98 in 2011'. Self-reported by operators."
+   },
+   "craShare": {
+    "value": 25,
+    "unit": "% of site energy for room air conditioners",
+    "status": "study",
+    "source": "lbnl-2012",
+    "asOf": "2012",
+    "note": "One benchmarked site: 'Data Center CRAC Units 25%', servers 51%. Shares vary considerably between sites."
+   },
+   "water": {
+    "value": "no water, more electricity",
+    "status": "study",
+    "source": "lbnl-2024",
+    "note": "LBNL: 'While air-cooled chillers use no water, they use more energy.'"
+   }
+  },
+  "today": {
+   "germanyPue2026": {
+    "value": 1.42,
+    "unit": "PUE, German average 2026",
+    "status": "study",
+    "source": "bitkom-2026",
+    "asOf": "2026",
+    "note": "'So sank der durchschnittliche PUE-Wert deutscher Rechenzentren von 1,63 im Jahr 2020 auf 1,42 im Jahr 2026.' Industry-funded."
+   },
+   "germanyWue2025": {
+    "value": 0.4,
+    "unit": "L/kWh, German sites in the EU register 2025",
+    "status": "study",
+    "source": "bitkom-2026",
+    "asOf": "2025"
+   }
+  },
+  "future": {
+   "coolantTemp": {
+    "value": 45,
+    "unit": "°C coolant",
+    "status": "vendor-claim",
+    "source": "nvidia-2026",
+    "asOf": "2026-06"
+   },
+   "waterClaim": {
+    "value": "up to 100% less water, chiller-less with dry coolers in favourable climates",
+    "status": "vendor-claim",
+    "source": "nvidia-2026",
+    "asOf": "2026-06"
+   },
+   "perDegree": {
+    "value": 4,
+    "unit": "% less cooling energy per 1 °C warmer coolant",
+    "status": "vendor-claim",
+    "source": "nvidia-2026",
+    "asOf": "2026-06",
+    "note": "'by just one degree can cut cooling energy costs by about 4%'."
+   },
+   "liquidShare": {
+    "value": "75–85",
+    "unit": "% of heat removed by liquid",
+    "status": "vendor-claim",
+    "source": "grundfos-liquid",
+    "note": "'Most systems remove 75-85% of the heat via liquid, the rest by air.'"
+   },
+   "lrzPue": {
+    "value": 1.08,
+    "unit": "PUE, LRZ SuperMUC-NG (Munich)",
+    "status": "vendor-claim",
+    "source": "tga-lrz",
+    "asOf": "2021",
+    "note": "Warm-water-cooled supercomputer; stated by the chiller supplier, for the machine rather than the whole site; not water-free."
+   },
+   "measuredPue": {
+    "value": null,
+    "status": "not-public",
+    "note": "NVIDIA's announcement gives no PUE figure, and no measured PUE for a 45 °C chiller-less facility has been published.",
+    "source": "nvidia-2026"
+   }
+  }
+ },
+ "environment": {
+  "water": {
+   "noProcessWastewater": {
+    "value": "no operational wastewater",
+    "status": "permitted",
+    "source": "permit-fra21",
+    "asOf": "2023-03-31",
+    "note": "'Beim Betrieb der Anlagen fallen keine betrieblichen Abwässer an.'"
+   },
+   "rainFillingArea": {
+    "value": "rain on the diesel filling area goes to the foul-water sewer; drain closed while refuelling",
+    "status": "permitted",
+    "source": "permit-fra21",
+    "asOf": "2023-03-31",
+    "note": "'Im Abfüllvorgang ist der Bodenablauf geschlossen und wird erst nach abgeschlossenem Vorgang wieder geöffnet.'"
+   },
+   "rainRoofs": {
+    "value": "rainwater drains, throttled, into the town rainwater sewer",
+    "status": "permitted",
+    "source": "permit-fra22",
+    "asOf": "2024-02-16",
+    "note": "'Die Niederschlagswasserentsorgung erfolgt gedrosselt in den Regenwasserkanal der Stadt Raunheim.'"
+   },
+   "fillingTray": {
+    "value": "filling area built as a drip tray with level alarm",
+    "status": "permitted",
+    "source": "permit-fra21",
+    "asOf": "2023-03-31",
+    "note": "'Der Abfüllplatz ist als Auffangwanne ausgeführt und mit einer Füllstandmessung mit Alarmfunktion ausgestattet.'"
+   },
+   "dieselTanksFra21": {
+    "value": 6,
+    "status": "permitted",
+    "source": "permit-fra21",
+    "asOf": "2023-03-31",
+    "unit": "diesel storage tanks",
+    "note": "Built to the AwSV rules for substances hazardous to water. Volume not stated in this permit."
+   },
+   "glycol": {
+    "value": "12 chillers, each with 1.3 m³ of 30% ethylene glycol (water hazard class 1)",
+    "status": "permitted",
+    "source": "permit-fra22",
+    "asOf": "2024-02-16"
+   },
+   "dieselWgk": {
+    "value": 2,
+    "status": "permitted",
+    "source": "permit-fra22",
+    "asOf": "2024-02-16",
+    "unit": "water hazard class of diesel (1 = slight, 3 = severe)"
+   },
+   "groundwaterMonitoring": {
+    "value": 5,
+    "status": "permitted",
+    "source": "permit-fra22",
+    "asOf": "2024-02-16",
+    "unit": "years between groundwater tests",
+    "note": "'Das Grundwasser des Anlagengrundstückes ist … alle fünf Jahre auf die relevanten gefährlichen Stoffe … zu überwachen.'"
+   },
+   "mainDistance": {
+    "value": 0.9,
+    "unit": "km to the river Main, north-north-west",
+    "status": "derived",
+    "formula": "distance between OSM coordinates of the address and the nearest point of the Main centreline",
+    "inputs": [
+     "osm-main"
+    ],
+    "note": "FRA21 at 50.0132 N, 8.4624 E; nearest Main centreline point 50.0206 N, 8.4571 E; bearing about 335°. The bank is a little closer."
+   },
+   "protectionZone": {
+    "value": "outside nature, landscape and water protection zones",
+    "status": "permitted",
+    "source": "bplan-resart-8",
+    "asOf": "2021-03-31",
+    "note": "'Der Geltungsbereich des Bebauungsplanes liegt außerhalb von Natur-, Landschaftsschutz- und Wasserschutzgebieten.'"
+   },
+   "nearestZone": {
+    "value": 1.0,
+    "unit": "km to the nearest drinking-water protection zone (zone III, across the Main)",
+    "status": "reference",
+    "source": "hlnug-wsg",
+    "asOf": "2026",
+    "note": "Calculated from the state map layer, which is marked as not legally binding."
+   },
+   "townOverflows": {
+    "value": 5,
+    "unit": "combined-sewer overflows into the Main in Raunheim",
+    "status": "operator",
+    "source": "raunheim-2023-499",
+    "asOf": "2023",
+    "note": "'sodass durch Niederschlagswasser verdünntes Schmutzwasser in den Vorfluter Main abgeschlagen wird. Im Stadtgebiet bestehen insgesamt fünf derartiger Entlastungsbauwerke.'"
+   },
+   "siteRainRoute": {
+    "value": null,
+    "status": "not-public",
+    "source": "raunheim-2023-499",
+    "note": "Where rainwater from this commercial area ends up (river, treatment plant) is not published."
+   },
+   "groundwaterDepth": {
+    "value": null,
+    "status": "not-public",
+    "source": "permit-fra22",
+    "note": "Groundwater depth at the site is not published; the layer in the model is schematic."
+   },
+   "withdrawalBan2026": {
+    "value": "taking water from streams and lakes banned in Kreis Groß-Gerau until 31 Oct 2026 (Rhine and Main exempt)",
+    "status": "regulation",
+    "source": "kreisgg-2026",
+    "asOf": "2026-07-16"
+   },
+   "awsvRule": {
+    "value": "tanks and pipes must not leak, leaks must be detected quickly, spills held back in drain-less trays",
+    "status": "regulation",
+    "source": "awsv",
+    "note": "§ 17(1) and § 18(2): 'Rückhalteeinrichtungen müssen flüssigkeitsundurchlässig sein und dürfen keine Abläufe haben.'"
+   },
+   "evapChemicals": {
+    "value": "biocides, hardness stabilisers, dispersants, corrosion inhibitors",
+    "status": "study",
+    "source": "uba-cooling-chem",
+    "asOf": "2002",
+    "note": "What evaporative cooling water is typically treated with. Not used at FRA21."
+   },
+   "evapLimits": {
+    "value": "drained cooling water may contain biocides only after shock treatment; limits e.g. COD 40 mg/l, phosphorus 3 mg/l",
+    "status": "regulation",
+    "source": "abwv-31"
+   }
+  },
+  "air": {
+   "noxFra21": {
+    "value": 2000,
+    "status": "permitted",
+    "source": "permit-fra21",
+    "asOf": "2023-03-31",
+    "unit": "mg/m³ NOx limit per generator (no catalyst)",
+    "note": "'Stickoxide, angegeben als NO2 2 g/m³'."
+   },
+   "noxFra22": {
+    "value": 650,
+    "status": "permitted",
+    "source": "permit-fra22",
+    "asOf": "2024-02-16",
+    "unit": "mg/m³ NOx limit per generator (with SCR catalyst)",
+    "note": "'durch den Einsatz von SCR-Katalysatoren auf 650 mg/m³ senken'."
+   },
+   "irrelevance": {
+    "value": 1.2,
+    "status": "permitted",
+    "source": "permit-fra21",
+    "asOf": "2023-03-31",
+    "unit": "µg/m³ irrelevance threshold not exceeded (PM10, NO2)",
+    "note": "TÜV Hessen air-pollution forecast: with running hours capped at 2,502 h/yr, the added fine dust and NO2 stays below the irrelevance threshold."
+   }
+  },
+  "nature": {
+   "ffh": {
+    "value": "next to the EU nature reserve 'Wald bei Groß-Gerau' (FFH 6016-304); nitrogen and acid deposition assessed as not relevant",
+    "status": "permitted",
+    "source": "permit-fra21",
+    "asOf": "2023-03-31"
+   },
+   "fra32Measures": {
+    "value": "insect-friendly lighting (max 3,000 K, no light above 85°), bird-safe glass, 10 cm gaps under fences for small animals, green berm",
+    "status": "permitted",
+    "source": "raunheim-2023-548",
+    "asOf": "2023-09-11"
+   },
+   "fra32Sealing": {
+    "value": 0.8,
+    "unit": "share of plot that may be built over (GRZ)",
+    "status": "permitted",
+    "source": "raunheim-2023-548",
+    "asOf": "2023-09-11"
+   },
+   "groundwaterGoal": {
+    "value": "the local plan names reducing the effect of sealed ground on groundwater recharge as a goal",
+    "status": "permitted",
+    "source": "raunheim-2023-548",
+    "asOf": "2023-09-11"
+   }
+  },
+  "climate": {
+   "gridFactor2025": {
+    "value": 344,
+    "unit": "g CO₂ per kWh, German electricity mix 2025 (estimate)",
+    "status": "study",
+    "source": "uba-co2-2025",
+    "asOf": "2025"
+   },
+   "co2LocationBased": {
+    "value": 46604,
+    "unit": "t CO₂ in 2025 on the grid mix",
+    "status": "derived",
+    "formula": "totalEnergy × gridFactor2025",
+    "inputs": [
+     "totalEnergy",
+     "gridFactor2025"
+    ]
+   },
+   "co2MarketBased": {
+    "value": "about 0, because 100% is covered by renewable contracts or certificates",
+    "status": "derived",
+    "formula": "renewableShare = 100 %",
+    "inputs": [
+     "renewableShare"
+    ],
+    "note": "Market-based accounting counts contracts and certificates; location-based counts the actual grid. Both are defined by the GHG Protocol."
+   },
+   "accounting": {
+    "value": "location-based = average grid; market-based = contracts and certificates",
+    "status": "study",
+    "source": "ghg-scope2",
+    "asOf": "2015"
+   }
+  }
+ },
+ "seasons": {
+  "freeCooling": {
+   "value": "outside air cools most of the year; chillers needed above about 22 °C outside, for relatively few hours a year",
+   "status": "study",
+   "source": "uba-dc-cooling",
+   "asOf": "2024",
+   "note": "'über die meiste Zeit des Jahres mittels Außenluft frei gekühlt werden'; 'Steigt die Außenlufttemperatur auf Werte über ca. 22 °C, müssen weitere Maßnahmen ergriffen werden'."
+  },
+  "freeCoolingHours": {
+   "value": null,
+   "status": "not-public",
+   "source": "uba-dc-cooling",
+   "note": "No published figure for how many hours a year a Frankfurt site like FRA21 can cool with outside air alone."
+  },
+  "inletRange": {
+   "value": "18–27",
+   "unit": "°C recommended server intake air",
+   "status": "study",
+   "source": "ashrae-2016",
+   "asOf": "2016"
+  },
+  "meanJan": {
+   "value": 2.3,
+   "unit": "°C, January mean, Frankfurt 1991–2020",
+   "status": "reference",
+   "source": "dwd-normals",
+   "asOf": "1991–2020"
+  },
+  "meanJul": {
+   "value": 20.5,
+   "unit": "°C, July mean (day and night), Frankfurt 1991–2020",
+   "status": "reference",
+   "source": "dwd-normals",
+   "asOf": "1991–2020"
+  },
+  "summerDays": {
+   "value": 59.6,
+   "unit": "days a year at 25 °C or more",
+   "status": "reference",
+   "source": "dwd-normals",
+   "asOf": "1991–2020"
+  },
+  "hotDays": {
+   "value": 16.4,
+   "unit": "days a year at 30 °C or more",
+   "status": "reference",
+   "source": "dwd-normals",
+   "asOf": "1991–2020"
+  },
+  "record": {
+   "value": 41.1,
+   "unit": "°C, Frankfurt airport record, 27 June 2026 (provisional)",
+   "status": "reference",
+   "source": "dwd-daily",
+   "asOf": "2026-06-27",
+   "note": "From recent daily data not yet fully quality-checked. Previous record 40.1 °C on 25 July 2019."
+  },
+  "flatLoad": {
+   "value": 94,
+   "unit": "% of its own peak: average load of a large hyperscale site",
+   "status": "study",
+   "source": "epri-2026",
+   "asOf": "2026",
+   "note": "'high, relatively flat utilization'; utility-funded research institute."
+  },
+  "evapHotDays": {
+   "value": "outside air alone below 29 °C; evaporative cooling only on the hottest days (about 55 a year in Georgia, USA)",
+   "status": "operator",
+   "source": "microsoft-water",
+   "asOf": "2026"
+  }
+ },
+ "sound": {
+  "distanceRule": {
+   "value": 6,
+   "unit": "dB quieter per doubling of distance (point source, open air)",
+   "status": "reference",
+   "source": "lu-schall",
+   "note": "Real sites also lose sound to buildings, walls, ground and air; this rule alone ignores that."
+  },
+  "homesNear": {
+   "value": 143,
+   "unit": "m, nearest permit address to FRA21 (Uhlandstraße 42a)",
+   "status": "derived",
+   "formula": "distance between OSM coordinates of the permit address and FRA21",
+   "inputs": [
+    "osm-main",
+    "permit-fra21"
+   ]
+  },
+  "homesFar": {
+   "value": 200,
+   "unit": "m, farthest residential permit address (Theodor-Storm-Straße 14)",
+   "status": "derived",
+   "formula": "distance between OSM coordinates of the permit address and FRA21",
+   "inputs": [
+    "osm-main",
+    "permit-fra21"
+   ]
+  },
+  "sourceLevel": {
+   "value": null,
+   "status": "not-public",
+   "source": "permit-fra21",
+   "note": "How loud the roof coolers and generators are at the source is in the unpublished noise reports."
+  }
+ }
+}

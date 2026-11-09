@@ -1,0 +1,132 @@
+{
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "step": 1,
+ "shots": [
+  {
+   "i": 0,
+   "frames": 300,
+   "caption": "A datacenter is a building full of computers. They run the apps, websites and AI we use every day.",
+   "overlay": {
+    "kind": "intro"
+   },
+   "step": 0,
+   "site": "raunheim"
+  },
+  {
+   "i": 1,
+   "frames": 360,
+   "caption": "Electricity comes in from the grid. This campus near Frankfurt used more than any other site in Germany’s register in 2025.",
+   "overlay": {
+    "kind": "power",
+    "gwh": 135.477339,
+    "homes": 40046.508720070946,
+    "phones": 266.82970423627063,
+    "source": "German datacenter register, 2025 · homes: average German household, 3,383 kWh (Destatis, 2021) · phone charge ≈ 16.1 Wh, calculated from Öko-Test"
+   },
+   "step": 1,
+   "site": "raunheim"
+  },
+  {
+   "i": 2,
+   "frames": 300,
+   "caption": "Inside, rows of servers do the computing.",
+   "overlay": {
+    "kind": "it",
+    "itShare": 80,
+    "utilisation": 30.9,
+    "source": "Calculated from FRA21’s reported PUE of 1.25 and its average load vs. 40 MW built (register, 2025)"
+   },
+   "step": 2,
+   "site": "raunheim"
+  },
+  {
+   "i": 3,
+   "frames": 270,
+   "caption": "Almost all of that electricity ends up as heat, and the heat has to leave the building.",
+   "overlay": {
+    "kind": "heat",
+    "heatGwh": 118.741579,
+    "reused": 0,
+    "source": "Reported by the operator to the German datacenter register, 2025"
+   },
+   "step": 3,
+   "site": "raunheim"
+  },
+  {
+   "i": 4,
+   "frames": 240,
+   "caption": "Coolers on the roof carry the heat away. Here the water stays sealed in the pipes.",
+   "overlay": {
+    "kind": "water1",
+    "m3": 2.97,
+    "people": 24,
+    "source": "FRA21: from its reported water figure (register, 2025) · The Dalles: Google, 2025 · per person: German household average, 126 L a day (UBA)"
+   },
+   "step": 4,
+   "site": "raunheim"
+  },
+  {
+   "i": 5,
+   "frames": 270,
+   "caption": "Other sites evaporate water to cool, like Google’s campus in Oregon. The blue block is one day of it, to scale.",
+   "overlay": {
+    "kind": "water2",
+    "m3a": 2.97,
+    "peopleA": 24,
+    "m3b": 4864,
+    "peopleB": 38603.1746031746,
+    "source": "FRA21: from its reported water figure (register, 2025) · The Dalles: Google, 2025 · per person: German household average, 126 L a day (UBA)"
+   },
+   "step": 4,
+   "site": "thedalles"
+  },
+  {
+   "i": 6,
+   "frames": 270,
+   "caption": "How big is that, compared with a whole country?",
+   "overlay": {
+    "kind": "share",
+    "fra21": 0.025756148098859316,
+    "all": 4.0494296577946765,
+    "source": "Germany’s electricity: 526 TWh (UBA, 2025) · all datacenters: 21.3 TWh, an industry estimate (Bitkom/Borderstep)"
+   },
+   "step": null,
+   "site": "globe"
+  },
+  {
+   "i": 7,
+   "frames": 300,
+   "caption": "Now imagine a datacenter built from the best ideas that already exist somewhere, and some that are only promised. It is fictional, placed in northern Sweden.",
+   "overlay": {
+    "kind": "idealIntro"
+   },
+   "step": null,
+   "site": "ideal"
+  },
+  {
+   "i": 8,
+   "frames": 300,
+   "caption": "Its heat is piped into the town’s heating network. But it makes far more heat than a whole town can use.",
+   "overlay": {
+    "kind": "idealHeat",
+    "twh": 13.14,
+    "times": 16,
+    "source": "Fictional campus at full load · Luleå’s district heat: 823 GWh (LuleKraft, 2019)"
+   },
+   "step": null,
+   "site": "ideal"
+  },
+  {
+   "i": 9,
+   "frames": 270,
+   "caption": "In blue glass: technology that is only promised, like small nuclear reactors. None powers a datacenter yet.",
+   "overlay": {
+    "kind": "none"
+   },
+   "step": null,
+   "site": "ideal"
+  }
+ ]
+}
